@@ -75,7 +75,26 @@
       margin: 2rem auto 1rem auto;
       border: 2px dashed #888;
       background: #111;
+    }
+
+    .canvas-wrapper {
       position: relative;
+      width: fit-content;
+      margin: 0 auto;
+    }
+
+    #pauseBtn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #1a1a1a;
+      color: #fef7e0;
+      border: none;
+      padding: 6px 12px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      z-index: 2;
     }
 
     #score {
@@ -92,24 +111,22 @@
       margin-top: 0.5rem;
     }
 
-    #pauseBtn {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: #1a1a1a;
-      color: #fef7e0;
-      border: none;
-      padding: 6px 12px;
-      font-weight: bold;
-      border-radius: 4px;
-      cursor: pointer;
-      z-index: 2;
+    .touch-controls {
+      display: none;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1rem auto 2rem;
     }
 
-    .canvas-wrapper {
-      position: relative;
-      width: fit-content;
-      margin: 0 auto;
+    .touch-controls button {
+      background: #1a1a1a;
+      color: #fef7e0;
+      font-weight: bold;
+      font-size: 1rem;
+      padding: 1rem;
+      border: none;
+      border-radius: 10px;
+      width: 80px;
     }
 
     .footer {
@@ -118,6 +135,17 @@
       font-size: 0.9rem;
       background: #fef7e0;
       color: #999;
+    }
+
+    @media screen and (max-width: 768px) {
+      canvas {
+        width: 90vw !important;
+        height: 60vh !important;
+      }
+
+      .touch-controls {
+        display: flex;
+      }
     }
   </style>
 </head>
@@ -143,8 +171,15 @@
       <button id="pauseBtn">Pause</button>
       <canvas id="gameCanvas" width="600" height="400"></canvas>
     </div>
+
     <div id="score">Score: 0</div>
-    <div id="legend">⬅️ ➡️ to move &nbsp; | &nbsp; Spacebar to shoot &nbsp; | &nbsp; Click "Pause" to stop the action</div>
+    <div id="legend">Desktop: ⬅️ ➡️ to move | Spacebar to shoot | Click Pause<br>Mobile: Tap left/right/fire below</div>
+
+    <div class="touch-controls">
+      <button id="leftBtn">⬅️</button>
+      <button id="fireBtn">🔫</button>
+      <button id="rightBtn">➡️</button>
+    </div>
   </div>
 
   <div class="footer">
@@ -158,8 +193,8 @@
     const pauseBtn = document.getElementById("pauseBtn");
     let paused = false;
 
-    let score = 0;
     const keys = {};
+    let score = 0;
     const bullets = [];
     const asteroids = [];
 
@@ -183,9 +218,7 @@
 
     function drawBullets() {
       ctx.fillStyle = "#fef7e0";
-      bullets.forEach(b => {
-        ctx.fillRect(b.x, b.y, b.width, b.height);
-      });
+      bullets.forEach(b => ctx.fillRect(b.x, b.y, b.width, b.height));
     }
 
     function drawAsteroids() {
@@ -227,18 +260,15 @@
       if (paused) return;
 
       moveShip();
-
       bullets.forEach(b => b.y -= b.speed);
-      bullets.filter(b => b.y > 0);
-
       asteroids.forEach(a => a.y += a.speed);
 
       bullets.forEach((b, bi) => {
         asteroids.forEach((a, ai) => {
           const dx = b.x - a.x;
           const dy = b.y - a.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          if (distance < a.radius) {
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < a.radius) {
             bullets.splice(bi, 1);
             asteroids.splice(ai, 1);
             score++;
@@ -246,8 +276,6 @@
           }
         });
       });
-
-      asteroids.filter(a => a.y < canvas.height);
     }
 
     function draw() {
@@ -263,9 +291,14 @@
       requestAnimationFrame(gameLoop);
     }
 
+    // Input handlers
     document.addEventListener("keydown", e => {
-      keys[e.code] = true;
-      if (e.code === "Space") shoot();
+      if (e.code === "Space") {
+        e.preventDefault();
+        shoot();
+      } else {
+        keys[e.code] = true;
+      }
     });
 
     document.addEventListener("keyup", e => {
@@ -277,9 +310,15 @@
       pauseBtn.textContent = paused ? "Play" : "Pause";
     };
 
+    // Touch controls
+    document.getElementById("leftBtn").ontouchstart = () => { keys["ArrowLeft"] = true; };
+    document.getElementById("leftBtn").ontouchend = () => { keys["ArrowLeft"] = false; };
+    document.getElementById("rightBtn").ontouchstart = () => { keys["ArrowRight"] = true; };
+    document.getElementById("rightBtn").ontouchend = () => { keys["ArrowRight"] = false; };
+    document.getElementById("fireBtn").ontouchstart = shoot;
+
     setInterval(spawnAsteroid, 1000);
     gameLoop();
   </script>
-
 </body>
 </html>
