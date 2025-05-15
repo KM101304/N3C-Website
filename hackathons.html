@@ -64,33 +64,33 @@
     }
 
     .cube {
-      width: 200px;
-      height: 200px;
+      width: 140px;
+      height: 140px;
       position: relative;
       transform-style: preserve-3d;
-      animation: rotateCube 12s linear infinite;
+      animation: rotateCubeX 12s linear infinite;
     }
 
     .cube-face {
       position: absolute;
-      width: 200px;
-      height: 200px;
+      width: 140px;
+      height: 140px;
       background-image: url('hackathon-banner2.jpg');
       background-size: cover;
       background-position: center;
       border: 1px solid #ccc;
     }
 
-    .front  { transform: rotateY(0deg) translateZ(100px); }
-    .back   { transform: rotateY(180deg) translateZ(100px); }
-    .right  { transform: rotateY(90deg) translateZ(100px); }
-    .left   { transform: rotateY(-90deg) translateZ(100px); }
-    .top    { transform: rotateX(90deg) translateZ(100px); }
-    .bottom { transform: rotateX(-90deg) translateZ(100px); }
+    .front  { transform: rotateY(0deg) translateZ(70px); }
+    .back   { transform: rotateY(180deg) translateZ(70px); }
+    .right  { transform: rotateY(90deg) translateZ(70px); }
+    .left   { transform: rotateY(-90deg) translateZ(70px); }
+    .top    { transform: rotateX(90deg) translateZ(70px); }
+    .bottom { transform: rotateX(-90deg) translateZ(70px); }
 
-    @keyframes rotateCube {
-      from { transform: rotateX(0deg) rotateY(0deg); }
-      to   { transform: rotateX(360deg) rotateY(360deg); }
+    @keyframes rotateCubeX {
+      from { transform: rotateX(0deg); }
+      to   { transform: rotateX(360deg); }
     }
 
     .main {
@@ -142,14 +142,21 @@
       }
 
       .cube {
-        width: 160px;
-        height: 160px;
+        width: 120px;
+        height: 120px;
       }
 
       .cube-face {
-        width: 160px;
-        height: 160px;
+        width: 120px;
+        height: 120px;
       }
+
+      .front  { transform: rotateY(0deg) translateZ(60px); }
+      .back   { transform: rotateY(180deg) translateZ(60px); }
+      .right  { transform: rotateY(90deg) translateZ(60px); }
+      .left   { transform: rotateY(-90deg) translateZ(60px); }
+      .top    { transform: rotateX(90deg) translateZ(60px); }
+      .bottom { transform: rotateX(-90deg) translateZ(60px); }
     }
   </style>
 </head>
@@ -166,7 +173,7 @@
     <a href="about.html">About Us</a>
   </div>
 
-  <!-- ✅ 3D Rotating Cube Here -->
+  <!-- Rotating Cube Section -->
   <div class="cube-container">
     <div class="cube">
       <div class="cube-face front"></div>
