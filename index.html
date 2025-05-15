@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About Us – N3C</title>
+  <title>N3C – No-Code Coding Club</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     body {
@@ -38,66 +38,76 @@
       100% { transform: translateX(-100%); }
     }
 
-    .nav {
+    .container {
       display: flex;
-      justify-content: center;
-      padding-top: 2rem;
+      padding: 2rem;
+      gap: 2rem;
+      flex: 1;
     }
 
-    .nav a {
-      color: #1a1a1a;
+    .sidebar {
+      width: 220px;
+      flex-shrink: 0;
+    }
+
+    .sidebar h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .sidebar p {
+      font-size: 1.1rem;
       font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar a {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 0.75rem 1.25rem;
+      background-color: #1a1a1a;
+      color: #fef7e0;
       text-decoration: none;
-      margin-right: 1.5rem;
+      font-weight: 700;
+      border-radius: 6px;
     }
 
     .main {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 0 2rem;
+      flex-grow: 1;
     }
 
-    h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
+    .nav {
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
     }
 
-    h2 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-top: 2rem;
+    .nav a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #1a1a1a;
     }
 
-    p {
+    .description {
       font-size: 1.1rem;
       line-height: 1.8;
-      margin-top: 0.5rem;
+      max-width: 800px;
+      margin-bottom: 1.5rem;
     }
 
-    .bio-section {
-      display: flex;
-      gap: 2rem;
-      align-items: flex-start;
-      margin-top: 2rem;
-      flex-wrap: wrap;
+    .banner {
+      margin: 0;
+      padding: 0;
     }
 
-    .bio-text {
-      flex: 1;
-      min-width: 280px;
-    }
-
-    .bio-photo {
-      flex-shrink: 0;
-      max-width: 300px;
+    .banner img {
+      display: block;
+      margin: 0;
       width: 100%;
-    }
-
-    .bio-photo img {
-      width: 100%;
+      max-width: 500px;
       height: auto;
-      border-radius: 12px;
       border: 2px dashed #bbb;
     }
 
@@ -107,33 +117,38 @@
       color: #999;
       background-color: #fef7e0;
       margin-top: auto;
-      text-align: center;
     }
 
     @media screen and (max-width: 768px) {
-      h1 {
-        font-size: 2.2rem;
+      .container {
+        flex-direction: column;
+        padding: 1.5rem;
+      }
+
+      .sidebar {
+        width: 100%;
         text-align: center;
+      }
+
+      .sidebar h1 {
+        font-size: 3rem;
       }
 
       .nav {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
+        justify-content: center;
       }
 
-      .main {
-        padding: 1rem;
-      }
-
-      .bio-section {
-        flex-direction: column;
-        align-items: center;
+      .description {
+        font-size: 1rem;
         text-align: center;
       }
 
-      .bio-text {
-        max-width: 100%;
+      .banner {
+        text-align: center;
+      }
+
+      .banner img {
+        max-width: 90%;
       }
     }
   </style>
@@ -144,44 +159,30 @@
     <span>N3C: BUILD WITHOUT CODE | WORKSHOPS, HACKATHONS, TOOLS | FOLLOW @NOCODECODINGCLUB | NO CODE. NO LIMITS. JUST BUILDERS.</span>
   </div>
 
-  <div class="nav">
-    <a href="index.html">Home</a>
-    <a href="hackathons.html">Hackathons</a>
-    <a href="contact.html">Contact</a>
-    <a href="about.html">About Us</a>
-  </div>
-
-  <div class="main">
-    <h1>About N3C</h1>
-    <p>
-      N3C stands for the No-Code Coding Club — a community created to help students from all backgrounds learn how to build real, functioning digital tools without needing to write a single line of code.
-    </p>
-
-    <div class="bio-section">
-      <div class="bio-text">
-        <h2>About the Founder – Ken Matsuura</h2>
-        <p>
-          My name is Ken Matsuura. I'm a third-year business student at Capilano University with a concentration in International Business and Logistics. I’m also the creator of N3C.
-        </p>
-        <p>
-          I started N3C because I noticed something missing — a space for students who think creatively, but don’t have a technical background. With no-code tools like Notion, AI, Zapier, and Webflow, anyone can bring big ideas to life. This club gives students from any program the tools and support to actually build things — quickly.
-        </p>
-      </div>
-
-      <div class="bio-photo">
-        <img src="ken-bio.jpg" alt="Ken Matsuura">
-      </div>
+  <div class="container">
+    <div class="sidebar">
+      <h1>N3C</h1>
+      <p>NO CODE CODING CLUB</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSep5V7ZO48LEfULqIQbWHyUWtQbvk33cdMbqianUkRIgxgbVw/viewform?usp=header" target="_blank">Sign Up</a><br>
+      <a href="https://www.instagram.com/nocodecodingclub/" target="_blank">Instagram</a>
     </div>
 
-    <h2>Interests & Hobbies</h2>
-    <p>
-      I like to experiment. I’m into building automation systems, modding tech (like ThinkPads and iPods), developing tools using AI, and even flying hacked drones. I also enjoy training, reflecting, and traveling — basically anything that pushes me physically or mentally.
-    </p>
+    <div class="main">
+      <div class="nav">
+        <a href="#">Home</a>
+        <a href="#">Hackathons</a>
+        <a href="#">Contact</a>
+        <a href="#">About Us</a>
+      </div>
 
-    <h2>My Goal with This Club</h2>
-    <p>
-      The dream is to create a launchpad. I want N3C to give people the confidence and skills to start their own projects — fast. Workshops, hackathons, community builds — whatever gets ideas out of heads and into the world. Eventually, I want this to be bigger than CapU — a decentralized global no-code network.
-    </p>
+      <p class="description">
+        Capilano University's first innovation club for non-coders. Whether you're in business, film, psych, or anything in between — we’ll show you how to build and automate using tools like Notion, AI, Zapier, and Webflow.
+      </p>
+
+      <div class="banner">
+        <img src="hackathon-banner.png" alt="Hackathon@CapU">
+      </div>
+    </div>
   </div>
 
   <div class="footer">
