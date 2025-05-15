@@ -6,12 +6,19 @@
   <title>Hackathons – N3C</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       padding: 0;
       font-family: 'Inter', sans-serif;
       background-color: #fef7e0;
       color: #1a1a1a;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     .ticker {
@@ -35,14 +42,27 @@
       100% { transform: translateX(-100%); }
     }
 
+    .nav {
+      display: flex;
+      justify-content: center;
+      padding: 2rem;
+      gap: 2rem;
+    }
+
+    .nav a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
     .main {
       max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 2rem;
+      margin: 0 auto;
+      padding: 2rem;
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 2.8rem;
       font-weight: 800;
       margin-bottom: 1rem;
     }
@@ -50,75 +70,107 @@
     h2 {
       font-size: 1.5rem;
       font-weight: 700;
-      margin-top: 2rem;
+      margin-top: 2.5rem;
     }
 
     p {
       font-size: 1.1rem;
       line-height: 1.8;
-      margin-top: 0.5rem;
     }
 
     .logo-placeholder {
-      width: 100%;
-      max-width: 500px;
-      height: 250px;
-      margin: 2rem auto;
-      background-color: #ddd;
+      margin-top: 2rem;
       border: 2px dashed #bbb;
+      height: 150px;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      color: #777;
       font-weight: 600;
-      color: #666;
+      font-size: 1.1rem;
     }
 
-    @media screen and (max-width: 600px) {
+    .footer {
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #999;
+      background-color: #fef7e0;
+      text-align: center;
+      margin-top: auto;
+    }
+
+    @media screen and (max-width: 768px) {
       h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
         text-align: center;
       }
 
-      .main {
-        padding: 1rem;
+      .nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
       }
 
-      .logo-placeholder {
-        height: 200px;
+      .main {
+        padding: 1.5rem;
       }
     }
   </style>
 </head>
 <body>
+
   <div class="ticker">
-    <span>N3C: BUILD WITHOUT CODE | WORKSHOPS, HACKATHONS, TOOLS | FOLLOW @NOCODECODINGCLUB | NO CODE. NO LIMITS. JUST BUILDERS.</span>
+    <span>N3C: BUILD WITHOUT CODE | HACKATHONS COMING SOON | FOLLOW @NOCODECODINGCLUB | NO CODE. NO LIMITS. JUST BUILDERS.</span>
+  </div>
+
+  <div class="nav">
+    <a href="index.html">Home</a>
+    <a href="hackathons.html">Hackathons</a>
+    <a href="#">Contact</a>
+    <a href="about.html">About Us</a>
   </div>
 
   <div class="main">
     <h1>Hackathons @ N3C</h1>
+    <p>
+      Our hackathons are fast-paced, team-based events where students from all backgrounds come together to build something — using no-code tools and their own creativity. Whether you're a first-timer or a serial builder, this is your place to create.
+    </p>
+
+    <h2>🎯 Goals of Our Hackathons</h2>
+    <p>
+      - Empower non-coders to prototype real tools in 24 hours or less<br>
+      - Foster collaboration between business, psych, arts, and tech students<br>
+      - Prove that execution matters more than technical experience<br>
+      - Help students walk away with a working product, not just an idea
+    </p>
+
+    <h2>🛠️ How It Works</h2>
+    <p>
+      - Teams are formed at the event kickoff<br>
+      - Each team gets a prompt or theme<br>
+      - You’ll use tools like Notion, Zapier, Webflow, Figma, Glide, and AI<br>
+      - Judges select winners based on creativity, impact, and execution
+    </p>
+
+    <h2>🤔 Why Join?</h2>
+    <p>
+      Because building is better than brainstorming. Hackathons give you the chance to actually do something with your ideas. You’ll network, learn new tools, and walk away with experience that goes beyond the classroom.
+    </p>
+
+    <h2>📖 Hackathon Story</h2>
+    <p>
+      In our last beta hackathon, a 3-person team built a web app in 8 hours that automated club onboarding using Notion, Airtable, and Make. None of them knew each other. None of them wrote code. They left with a live tool they actually used the next week.
+    </p>
+
     <div class="logo-placeholder">
-      [ Hackathon@CapU Logo Goes Here ]
+      [ Hackathon@CapU Logo Placeholder ]
     </div>
-
-    <h2>What is a Hackathon?</h2>
-    <p>A hackathon is an intense, time-boxed event where individuals or teams collaborate to build a solution — whether it's an app, automation, prototype, or tool. At N3C, our hackathons are designed to help non-coders build real, functioning projects using no-code platforms.</p>
-
-    <h2>Goals of Our Hackathons</h2>
-    <ul>
-      <li>Empower students from all backgrounds to create solutions fast</li>
-      <li>Foster collaboration between creative and technical minds</li>
-      <li>Encourage experimentation and problem-solving under pressure</li>
-      <li>Launch working MVPs in under 48 hours</li>
-    </ul>
-
-    <h2>How It Works</h2>
-    <p>Hackathons at CapU typically run for 24 to 48 hours. Participants form teams, pick a challenge, and race to create a working solution using tools like Webflow, Airtable, Zapier, Framer, and AI builders. We bring in mentors, snacks, workshops, and good vibes. Everyone walks away with something real — a prototype, a pitch, or a polished workflow.</p>
-
-    <h2>Why You Should Join</h2>
-    <p>Even if you’ve never built anything before, N3C hackathons are your chance to start. You’ll get hands-on experience, meet new collaborators, and leave with a project you can show off. It’s less about winning and more about doing.</p>
-
-    <h2>Stories From Other Hackathons</h2>
-    <p>Last semester, a group of first-time hackers built a job application funnel using Notion and Make.com. Another team launched a mental wellness chatbot using Tally Forms, OpenAI, and Webflow — in just one day. These weren’t coders — just students with ideas, motivation, and support.</p>
   </div>
+
+  <div class="footer">
+    &copy; 2025 N3C – No-Code Coding Club @ Capilano University<br>
+    President: Ken Matsuura
+  </div>
+
 </body>
 </html>
