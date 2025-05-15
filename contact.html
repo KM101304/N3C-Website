@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact – N3C</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #000;
+      color: #fef7e0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .ticker {
+      background-color: #111;
+      color: #ffa500;
+      overflow: hidden;
+      white-space: nowrap;
+      font-family: monospace;
+      padding: 0.6rem 0;
+      font-size: 1rem;
+    }
+
+    .ticker span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: ticker 25s linear infinite;
+    }
+
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+      background: #fef7e0;
+      color: #1a1a1a;
+    }
+
+    .nav a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .main {
+      text-align: center;
+      padding: 2rem;
+      flex: 1;
+    }
+
+    .email {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.25rem;
+      background-color: #1a1a1a;
+      color: #fef7e0;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    canvas {
+      display: block;
+      margin: 2rem auto;
+      border: 2px dashed #888;
+      background: #111;
+    }
+
+    #score {
+      font-size: 1.2rem;
+      text-align: center;
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+
+    .footer {
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      background: #fef7e0;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ticker">
+    <span>N3C: SHOOT ASTEROIDS | EMAIL US | DEFEND INBOXES | nocodecodingclub@gmail.com</span>
+  </div>
+
+  <div class="nav">
+    <a href="index.html">Home</a>
+    <a href="hackathons.html">Hackathons</a>
+    <a href="contact.html">Contact</a>
+    <a href="about.html">About Us</a>
+  </div>
+
+  <div class="main">
+    <h1>Contact Us</h1>
+    <p>Send us an email after you defend the inbox:</p>
+    <a href="mailto:nocodecodingclub@gmail.com" class="email">nocodecodingclub@gmail.com</a>
+
+    <canvas id="gameCanvas" width="600" height="400"></canvas>
+    <div id="score">Score: 0</div>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 N3C – No-Code Coding Club @ Capilano University<br>
+    President: Ken Matsuura
+  </div>
+
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    let score = 0;
+    const keys = {};
+    const bullets = [];
+    const asteroids = [];
+
+    const ship = {
+      x: canvas.width / 2 - 15,
+      y: canvas.height - 40,
+      width: 30,
+      height: 30,
+      speed: 5
+    };
+
+    function drawShip() {
+      ctx.fillStyle = "#ffa500";
+      ctx.beginPath();
+      ctx.moveTo(ship.x + ship.width / 2, ship.y);
+      ctx.lineTo(ship.x, ship.y + ship.height);
+      ctx.lineTo(ship.x + ship.width, ship.y + ship.height);
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    function drawBullets() {
+      ctx.fillStyle = "#fef7e0";
+      bullets.forEach(b => {
+        ctx.fillRect(b.x, b.y, b.width, b.height);
+      });
+    }
+
+    function drawAsteroids() {
+      ctx.fillStyle = "#d11";
+      asteroids.forEach(a => {
+        ctx.beginPath();
+        ctx.arc(a.x, a.y, a.radius, 0, Math.PI * 2);
+        ctx.fill();
+      });
+    }
+
+    function moveShip() {
+      if (keys["ArrowLeft"] && ship.x > 0) ship.x -= ship.speed;
+      if (keys["ArrowRight"] && ship.x + ship.width < canvas.width) ship.x += ship.speed;
+    }
+
+    function shoot() {
+      bullets.push({
+        x: ship.x + ship.width / 2 - 2,
+        y: ship.y,
+        width: 4,
+        height: 10,
+        speed: 6
+      });
+    }
+
+    function spawnAsteroid() {
+      asteroids.push({
+        x: Math.random() * canvas.width,
+        y: -20,
+        radius: 15 + Math.random() * 10,
+        speed: 2 + Math.random() * 2
+      });
+    }
+
+    function updateGame() {
+      moveShip();
+
+      bullets.forEach(b => b.y -= b.speed);
+      bullets.filter(b => b.y > 0);
+
+      asteroids.forEach(a => a.y += a.speed);
+
+      // Collision detection
+      bullets.forEach((b, bi) => {
+        asteroids.forEach((a, ai) => {
+          const dx = b.x - a.x;
+          const dy = b.y - a.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          if (distance < a.radius) {
+            bullets.splice(bi, 1);
+            asteroids.splice(ai, 1);
+            score++;
+            document.getElementById("score").innerText = "Score: " + score;
+          }
+        });
+      });
+
+      asteroids.filter(a => a.y < canvas.height);
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawShip();
+      drawBullets();
+      drawAsteroids();
+    }
+
+    function gameLoop() {
+      updateGame();
+      draw();
+      requestAnimationFrame(gameLoop);
+    }
+
+    document.addEventListener("keydown", e => {
+      keys[e.code] = true;
+      if (e.code === "Space") shoot();
+    });
+
+    document.addEventListener("keyup", e => {
+      keys[e.code] = false;
+    });
+
+    setInterval(spawnAsteroid, 1000);
+    gameLoop();
+  </script>
+
+</body>
+</html>
