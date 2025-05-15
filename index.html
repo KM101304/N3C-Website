@@ -38,10 +38,12 @@
     .container {
       display: flex;
       padding: 2rem;
+      gap: 2rem;
     }
 
     .sidebar {
       width: 220px;
+      flex-shrink: 0;
     }
 
     .sidebar h1 {
@@ -69,15 +71,16 @@
 
     .main {
       flex-grow: 1;
-      padding-left: 3rem;
     }
 
     .nav {
       margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
 
     .nav a {
-      margin-right: 2rem;
       text-decoration: none;
       font-weight: 600;
       color: #1a1a1a;
@@ -92,20 +95,56 @@
 
     .banner {
       width: 100%;
-      height: 300px;
-      background-color: #ddd;
+      height: auto;
+      overflow: hidden;
       border: 2px dashed #bbb;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-weight: 600;
-      color: #777;
+      margin-bottom: 2rem;
+    }
+
+    .banner img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
     }
 
     .footer {
       padding: 2rem;
       font-size: 0.9rem;
       color: #999;
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 1.5rem;
+      }
+
+      .sidebar {
+        width: 100%;
+        text-align: center;
+      }
+
+      .sidebar h1 {
+        font-size: 3rem;
+      }
+
+      .main {
+        padding-top: 2rem;
+      }
+
+      .nav {
+        justify-content: center;
+      }
+
+      .description {
+        font-size: 1rem;
+        text-align: center;
+      }
+
+      .banner {
+        height: auto;
+      }
     }
   </style>
 </head>
@@ -135,7 +174,9 @@
         Capilano University's first innovation club for non-coders. Whether you're in business, film, psych, or anything in between — we’ll show you how to build and automate using tools like Notion, AI, Zapier, and Webflow.
       </p>
 
-      <div class="banner">[ Hackathon Banner Image Goes Here ]</div>
+      <div class="banner">
+        <img src="hackathon-banner.png" alt="Hackathon@CapU">
+      </div>
     </div>
   </div>
 
