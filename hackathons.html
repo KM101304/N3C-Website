@@ -55,14 +55,42 @@
       color: #1a1a1a;
     }
 
-    .banner-header {
-      width: 100%;
-      max-width: 900px;
-      height: 150px;
-      object-fit: cover;
-      display: block;
-      margin: 0 auto;
-      border: 2px dashed #bbb;
+    .cube-container {
+      perspective: 1000px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .cube {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: rotateCube 12s linear infinite;
+    }
+
+    .cube-face {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background-image: url('hackathon-banner2.jpg');
+      background-size: cover;
+      background-position: center;
+      border: 1px solid #ccc;
+    }
+
+    .front  { transform: rotateY(0deg) translateZ(100px); }
+    .back   { transform: rotateY(180deg) translateZ(100px); }
+    .right  { transform: rotateY(90deg) translateZ(100px); }
+    .left   { transform: rotateY(-90deg) translateZ(100px); }
+    .top    { transform: rotateX(90deg) translateZ(100px); }
+    .bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+    @keyframes rotateCube {
+      from { transform: rotateX(0deg) rotateY(0deg); }
+      to   { transform: rotateX(360deg) rotateY(360deg); }
     }
 
     .main {
@@ -112,6 +140,16 @@
       .main {
         padding: 1.5rem;
       }
+
+      .cube {
+        width: 160px;
+        height: 160px;
+      }
+
+      .cube-face {
+        width: 160px;
+        height: 160px;
+      }
     }
   </style>
 </head>
@@ -128,8 +166,17 @@
     <a href="about.html">About Us</a>
   </div>
 
-  <!-- ✅ Banner placed directly before main content -->
-  <img src="hackathon-banner2.jpg" alt="Hackathon@CapU Banner" class="banner-header" />
+  <!-- ✅ 3D Rotating Cube Here -->
+  <div class="cube-container">
+    <div class="cube">
+      <div class="cube-face front"></div>
+      <div class="cube-face back"></div>
+      <div class="cube-face right"></div>
+      <div class="cube-face left"></div>
+      <div class="cube-face top"></div>
+      <div class="cube-face bottom"></div>
+    </div>
+  </div>
 
   <div class="main">
     <h1>Hackathons @ N3C</h1>
@@ -154,25 +201,9 @@
       - Judges select winners based on creativity, impact, and execution
     </p>
 
-    <h2>🤔 Why Join?</h2>
-    <p>
-      Because building is better than brainstorming. Hackathons give you the chance to actually do something with your ideas. You’ll network, learn new tools, and walk away with experience that goes beyond the classroom.
-    </p>
-
     <h2>📖 Hackathon Story</h2>
     <p>
-    In June 2023, the inaugural Cluj Hackathon in Romania brought together over 115 participants across 43 teams at the Bosch Engineering Center Cluj. This event focused on Artificial Intelligence and Generative AI, fostering innovation and collaboration among diverse participants.
-Startups&TheCity
-
-A standout achievement came from two 12-year-old participants who, with mentor guidance, developed an AI-powered story generator. Their success highlighted the inclusive and empowering nature of the hackathon.
-Startups&TheCity
-
-The top prize was awarded to Team TestBusters for creating an AI-driven automated software testing platform. Their solution not only executed tests but also generated them automatically, simplifying the process for non-technical users. This innovation exemplified the hackathon's goal of delivering functional products within a limited timeframe.
-Startups&TheCity
-
-Source: The story behind the success of Cluj’s biggest hackathon
-
-
+      In June 2023, the Cluj Hackathon brought together over 100 participants and awarded top prize to a team that built an AI-powered software testing system — fully functional and designed for non-coders. The team went on to pitch it as a real business.
     </p>
   </div>
 
