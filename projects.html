@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,27 +58,6 @@
       padding: 0 2rem;
     }
 
-    .logo {
-      text-align: left;
-      padding-left: 2rem;
-    }
-
-    .logo h1 {
-      font-size: 4rem;
-      font-weight: 800;
-      color: #ff7a00;
-      margin: 0;
-      line-height: 1;
-    }
-
-    .logo span {
-      font-size: 1.5rem;
-      font-weight: 600;
-      display: block;
-      color: #ff7a00;
-      margin-top: -0.5rem;
-    }
-
     .project {
       background-color: white;
       padding: 2rem;
@@ -106,9 +84,11 @@
     }
 
     .project img {
-      width: 100%;
+      max-width: 100%;
+      width: 80%;
+      display: block;
+      margin: 1rem auto;
       border-radius: 8px;
-      margin-top: 1rem;
     }
   </style>
 </head>
@@ -121,19 +101,20 @@
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
     <a href="hackathons.html">Hackathon</a>
+    <a href="projects.html">Projects</a>
   </nav>
 
   <!-- Logo -->
-  <div class="logo">
-    <h1>N3C</h1>
-    <span>projects</span>
+  <div class="logo" style="display: flex; align-items: baseline; gap: 0.5rem; padding-left: 2rem;">
+    <h1 style="font-size: 4rem; font-weight: 800; color: #ff7a00; margin: 0;">N3C</h1>
+    <span style="font-size: 1.5rem; font-weight: 700; color: #ff7a00;">projects</span>
   </div>
 
   <!-- Content -->
   <div class="container">
     <div class="project">
       <h2>Offline Radar Setup</h2>
-      <img src="radar-setup.jpg" alt="Radar Setup Image">
+      <img src="assets/radar-setup.jpg" alt="Radar Setup Image">
       <h3>How AI Was Used</h3>
       <p>AI is integrated for future flight pattern analysis, anomaly detection, and predictive modeling to classify signals and anticipate airspace behavior.</p>
 
@@ -173,5 +154,10 @@
       </p>
     </div>
   </div>
+
+  <!-- Footer -->
+  <footer style="background-color: #1a1a1a; color: #fef7e0; text-align: center; padding: 1.5rem 2rem; margin-top: 3rem;">
+    <p style="margin: 0; font-size: 0.95rem;">Built by students. Powered by no-code. &copy; 2025 N3C.</p>
+  </footer>
 </body>
 </html>
