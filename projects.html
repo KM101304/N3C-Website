@@ -52,38 +52,46 @@
       color: #ffa500;
     }
 
-    .container {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 0 2rem;
+    header.hero {
+      background-color: #fff1da;
+      padding: 4rem 2rem 2rem;
+      text-align: center;
+      border-bottom: 2px solid #ff7a00;
     }
 
-    .logo {
-      display: flex;
-      align-items: baseline;
-      gap: 0.5rem;
-      padding-left: 2rem;
-    }
-
-    .logo h1 {
+    header.hero h1 {
       font-size: 4rem;
       font-weight: 800;
-      color: #ff7a00;
       margin: 0;
+      color: #ff7a00;
     }
 
-    .logo span {
+    header.hero span {
       font-size: 1.5rem;
       font-weight: 700;
       color: #ff7a00;
     }
 
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
     .project {
       background-color: white;
       padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-      margin-top: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
     }
 
     .project h2 {
@@ -107,7 +115,35 @@
       width: 25%;
       display: block;
       margin: 1rem auto;
-      border-radius: 8px;
+      border-radius: 10px;
+    }
+
+    .project video {
+      display: block;
+      margin: 1rem auto;
+      border-radius: 12px;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      color: #fef7e0;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .project img {
+        width: 60%;
+      }
+      header.hero h1 {
+        font-size: 2.5rem;
+      }
     }
   </style>
 </head>
@@ -123,84 +159,65 @@
     <a href="projects.html">Projects</a>
   </nav>
 
-  <div class="logo">
-    <h1>N3C</h1>
-    <span>projects</span>
-  </div>
+  <header class="hero">
+    <h1>N3C<span style="font-size: 1.5rem; font-weight: 700;">projects</span></h1>
+    <p style="margin-top: 0.5rem; font-size: 1.1rem; color: #333; font-weight: 500; max-width: 600px; margin-inline: auto;">
+      Explore member-built tools, automation workflows, and real-world projects that reflect the spirit of no-code innovation.
+    </p>
+  </header>
 
   <div class="container">
 
-    <!-- Project 1 -->
-    <div class="project">
+    <!-- Offline Radar Setup -->
+    <div class="project" style="position: relative; overflow: hidden;">
       <h2>Offline Radar Setup</h2>
-      <img src="radar-setup.jpg" alt="Radar Setup Image" style="width: 37%;">
+      <img src="radar-setup.jpg" alt="Radar Setup Image">
       <h3>How AI Was Used</h3>
-      <p>AI is integrated for future flight pattern analysis, anomaly detection, and predictive modeling to classify signals and anticipate airspace behavior.</p>
-      <h3>Purpose of the Project</h3>
-      <p>To build a decentralized, offline-capable system that tracks nearby aircraft using ADS-B signals, independent of internet infrastructure.</p>
+      <p>Used for future flight path analysis, anomaly detection, and signal classification. Future steps include predictive modeling with Python.</p>
+      <h3>Purpose</h3>
+      <p>Create an offline system for tracking aircraft via ADS-B signals, without depending on any network connection.</p>
       <h3>Problem It Solves</h3>
-      <p>– Increases local airspace transparency<br>– Bypasses reliance on web-based radar platforms<br>– Opens up learning opportunities in signal intelligence and radio technology</p>
+      <p>– Transparent local airspace data<br>– No reliance on online trackers<br>– STEM education in signal tech</p>
       <h3>Applications</h3>
-      <p>– Aviation education and STEM outreach<br>– Localized airspace monitoring<br>– Experimental systems for drone air traffic coordination</p>
+      <p>– Local aviation security<br>– Drone coordination<br>– Technical education</p>
       <h3>How I Built It</h3>
       <p>
-        <strong>Hardware:</strong><br>
-        – RTL-SDR v3 USB dongle<br>
-        – Standard SMA antenna<br>
-        – ThinkPad T495 (Zorin OS)<br>
-        – USB extension cable<br><br>
-        <strong>Software:</strong><br>
-        – Dump1090, GQRX, Virtual Radar Server (optional)<br>
-        – Python scripts (planned)<br><br>
-        <strong>Steps:</strong><br>
-        1. Installed Zorin OS<br>
-        2. Connected RTL-SDR & antenna<br>
-        3. Installed Dump1090 & GQRX<br>
-        4. Validated real-time signal capture<br>
-        5. (Planned) AI analysis layer
+        <strong>Hardware:</strong> RTL-SDR v3, SMA antenna, ThinkPad T495 (Zorin OS)<br>
+        <strong>Software:</strong> Dump1090, GQRX, Virtual Radar Server<br>
+        <strong>Steps:</strong> Connect antenna → decode with Dump1090 → visualize → plan AI analysis
       </p>
     </div>
 
-    <!-- Project 2 -->
-    <div class="project">
+    <!-- Reel Maker -->
+    <div class="project" style="position: relative; overflow: hidden;">
       <h2>Automated Reel Maker</h2>
       <img src="reel-maker-placeholder.jpg" alt="Reel Maker Preview">
       <h3>How AI Was Used</h3>
-      <p>AI powers every step — from scraping Reddit to generating scripts, voiceovers, and matching visuals using APIs. Captions are stylized for vertical mobile-first formats.</p>
-      <h3>Purpose of the Project</h3>
-      <p>To fully automate short-form content creation (TikToks, Shorts) with a professional style — no editing required.</p>
+      <p>AI generates script summaries, voiceovers, finds matching stock footage, and autocomposes the entire video using Python.</p>
+      <h3>Purpose</h3>
+      <p>To automate the creation of engaging TikToks and YouTube Shorts with zero editing required from the user.</p>
       <h3>Problem It Solves</h3>
-      <p>– Eliminates editing time<br>– Enables non-creators to publish videos<br>– Powers consistent content pipelines</p>
+      <p>– Speeds up content pipelines<br>– Enables hands-free video publishing<br>– Consistent quality and timing</p>
       <h3>Applications</h3>
-      <p>– Niche education/inspiration content<br>– Marketing automation<br>– Passive income content loops</p>
+      <p>– Passive income channels<br>– Content repurposing<br>– Education, storytime, productivity niches</p>
       <h3>How I Built It</h3>
       <p>
-        <strong>Tech Stack:</strong><br>
-        Python (MoviePy, ElevenLabs, Pexels, OpenAI)<br><br>
-        <strong>Process:</strong><br>
-        1. Scrape and summarize content<br>
-        2. Generate script<br>
-        3. Voiceover (AI)<br>
-        4. Pull Pexels video<br>
-        5. Add captions and compile into vertical format<br>
-        6. Export MP4
+        <strong>Stack:</strong> Python (MoviePy, ElevenLabs, Pexels API, OpenAI)<br>
+        <strong>Pipeline:</strong> Reddit scrape → summarize → script → voice → b-roll → captions → export
       </p>
-
       <h3>Demo Video</h3>
-      <video width="320" height="570" controls style="display: block; margin: 1rem auto; border-radius: 12px;">
+      <video width="320" height="570" controls>
         <source src="reel-demo.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-
-      <p style="text-align: center; font-style: italic;">
-        Built in under 3 hours as a challenge to automate full video creation.
-      </p>
+      
     </div>
+
   </div>
 
-  <!-- Footer -->
-  <footer style="background-color: #1a1a1a; color: #fef7e0; text-align: center; padding: 1.5rem 2rem; margin-top: 3rem;">
-    <p style="margin: 0; font-size: 0.95rem;">© 2025 N3C – No-Code Coding Club @ Capilano University<br>President: Ken Matsuura</p>
+  <footer>
+    <p>© 2025 N3C – No-Code Coding Club @ Capilano University<br>President: Ken Matsuura</p>
+    <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.7;">Page designed with ✦ by the community.</p>
   </footer>
 </body>
 </html>
