@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>N3C – No-Code Coding Club</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #003566;
-      color: #f1f1f1;
       margin: 0;
       padding: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #fef7e0;
+      color: #1a1a1a;
     }
 
     .ticker {
@@ -19,9 +19,8 @@
       color: #ffa500;
       overflow: hidden;
       white-space: nowrap;
-      box-sizing: border-box;
       font-family: monospace;
-      padding: 0.75rem 0;
+      padding: 0.6rem 0;
       font-size: 1rem;
     }
 
@@ -32,99 +31,169 @@
     }
 
     @keyframes ticker {
-      0%   { transform: translateX(0); }
+      0% { transform: translateX(0); }
       100% { transform: translateX(-100%); }
     }
 
     .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 4rem 2rem;
-      text-align: center;
+      display: flex;
+      padding: 2rem;
     }
 
-    .logo {
-      width: 120px;
+    .sidebar {
+      width: 220px;
+    }
+
+    .sidebar h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .sidebar p {
+      font-size: 1.1rem;
+      font-weight: 600;
       margin-bottom: 2rem;
     }
 
-    h1 {
-      font-size: 3rem;
-      color: #ffffff;
-      margin-bottom: 0.5rem;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      color: #ffffff;
-      margin-top: 3rem;
-    }
-
-    p {
-      font-size: 1rem;
-      color: #dddddd;
-      max-width: 700px;
-      margin: 1rem auto;
-      line-height: 1.6;
-    }
-
-    .btn {
+    .sidebar a {
       display: inline-block;
-      margin: 1rem;
-      padding: 0.75rem 1.5rem;
-      background-color: #ffffff;
-      color: #003566;
-      font-weight: 600;
-      border: none;
-      border-radius: 6px;
+      margin-bottom: 1rem;
+      padding: 0.75rem 1.25rem;
+      background-color: #1a1a1a;
+      color: #fef7e0;
       text-decoration: none;
+      font-weight: 700;
+      border-radius: 6px;
+    }
+
+    .main {
+      flex-grow: 1;
+      padding-left: 3rem;
+    }
+
+    .nav {
+      margin-bottom: 2rem;
+    }
+
+    .nav a {
+      margin-right: 2rem;
+      text-decoration: none;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .description {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      max-width: 800px;
+      margin-bottom: 2rem;
+    }
+
+    .banner {
+      width: 100%;
+      height: 300px;
+      background-color: #ddd;
+      border: 2px dashed #bbb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 600;
+      color: #777;
     }
 
     .footer {
-      text-align: center;
-      padding: 3rem 1rem;
-      color: #888;
+      padding: 2rem;
       font-size: 0.9rem;
+      color: #999;
     }
 
-    .media {
-      margin-top: 3rem;
+    /* Cube Styling (smaller version) */
+    .cube-container {
+      width: 150px;
+      height: 150px;
+      perspective: 800px;
+      margin-bottom: 2rem;
     }
 
-    .media img {
-      max-width: 300px;
-      border-radius: 6px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-      margin: 1rem;
+    .cube {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: rotateCube 8s infinite linear;
+    }
+
+    .face {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background: #1a1a1a;
+      color: #fef7e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+      border: 2px solid #fff;
+    }
+
+    .face.front  { transform: rotateY(0deg) translateZ(75px); }
+    .face.back   { transform: rotateY(180deg) translateZ(75px); }
+    .face.right  { transform: rotateY(90deg) translateZ(75px); }
+    .face.left   { transform: rotateY(-90deg) translateZ(75px); }
+    .face.top    { transform: rotateX(90deg) translateZ(75px); }
+    .face.bottom { transform: rotateX(-90deg) translateZ(75px); }
+
+    @keyframes rotateCube {
+      0%   { transform: rotateX(0deg) rotateY(0deg); }
+      100% { transform: rotateX(360deg) rotateY(360deg); }
     }
   </style>
 </head>
 <body>
 
   <div class="ticker">
-    <span>HACKATHONS COMING SOON | BUILD WITHOUT CODE | FOLLOW @NOCODECODINGCLUB | CAPU'S FIRST INNOVATION CLUB FOR NON-CODERS | TOOLS, IDEAS, EXECUTION</span>
+    <span>N3C: BUILD WITHOUT CODE | WORKSHOPS, HACKATHONS, TOOLS | FOLLOW @NOCODECODINGCLUB | NO CODE. NO LIMITS. JUST BUILDERS.</span>
   </div>
 
   <div class="container">
-    <img class="logo" src="logo-placeholder.png" alt="N3C Logo">
+    <div class="sidebar">
+      <h1>N3C</h1>
+      <p>NO CODE CODING CLUB</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSep5V7ZO48LEfULqIQbWHyUWtQbvk33cdMbqianUkRIgxgbVw/viewform?usp=header" target="_blank">Sign Up</a><br>
+      <a href="https://www.instagram.com/nocodecodingclub/" target="_blank">Instagram</a>
+    </div>
 
-    <h1>No Code. No Limits. Just Builders.</h1>
+    <div class="main">
+      <div class="nav">
+        <a href="#">Home</a>
+        <a href="#">Hackathons</a>
+        <a href="#">Contact</a>
+        <a href="#">About Us</a>
+      </div>
 
-    <p>N3C is Capilano University's first no-code innovation club — helping students from all programs build and launch real projects using tools like Notion, Zapier, Webflow, and AI. No coding required.</p>
+      <div class="cube-container">
+        <div class="cube">
+          <div class="face front">N3C</div>
+          <div class="face back">NO CODE</div>
+          <div class="face right">JUST BUILD</div>
+          <div class="face left">TOOLS</div>
+          <div class="face top">ZAPIER</div>
+          <div class="face bottom">AI</div>
+        </div>
+      </div>
 
-    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSep5V7ZO48LEfULqIQbWHyUWtQbvk33cdMbqianUkRIgxgbVw/viewform?usp=header" target="_blank">Join the Club</a>
-    <a class="btn" href="https://www.instagram.com/nocodecodingclub/" target="_blank">Instagram</a>
+      <p class="description">
+        Capilano University's first innovation club for non-coders. Whether you're in business, film, psych, or anything in between — we’ll show you how to build and automate using tools like Notion, AI, Zapier, and Webflow.
+      </p>
 
-    <h2>Hackathons. Workshops. Collaboration.</h2>
-    <p>We're creating CapU’s first student-powered incubator for non-coders. Late-night build sessions. Tools you actually use. Real outcomes.</p>
-
-    <div class="media">
-      <img src="banner-placeholder.png" alt="Event Banner">
+      <div class="banner">[ Hackathon Banner Image Goes Here ]</div>
     </div>
   </div>
 
   <div class="footer">
-    &copy; 2025 N3C – No-Code Coding Club @ CapU<br>
+    &copy; 2025 N3C – No-Code Coding Club @ Capilano University<br>
     President: Ken Matsuura
   </div>
 
