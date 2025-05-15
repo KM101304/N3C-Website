@@ -53,11 +53,10 @@
     }
 
     header.hero {
-      background-color: #fff1da;
-      padding: 4rem 2rem 2rem;
-      text-align: center;
-      border-bottom: 2px solid #ff7a00;
-    }
+  background-color: #fff1da;
+  padding: 4rem 2rem 2rem;
+  text-align: left;
+}
 
     header.hero h1 {
       font-size: 4rem;
@@ -82,34 +81,40 @@
     }
 
     .project {
-      background-color: white;
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
+  background-color: #e0e0ff;
+  padding: 1.5rem;
+  border: 3px ridge #000;
+  border-radius: 0;
+  font-family: 'Inter', sans-serif;
+  color: #000;
+  background-image: repeating-linear-gradient(45deg, #f0f0f0 0, #f0f0f0 10px, #e0e0ff 10px, #e0e0ff 20px);
+}
 
     .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-    }
+  background-color: #fffef3;
+  border-color: #000080;
+}
 
     .project h2 {
-      font-size: 2rem;
-      color: #e75b00;
-      margin-top: 0;
-    }
+  font-size: 1.8rem;
+  color: #000080;
+  margin-top: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+}
 
     .project h3 {
-      margin-top: 1.5rem;
-      font-size: 1.2rem;
-      color: #333;
-    }
+  margin-top: 1.2rem;
+  font-size: 1.1rem;
+  color: #000;
+  font-weight: bold;
+}
 
     .project p {
-      font-size: 1rem;
-      line-height: 1.6;
-    }
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #111;
+}
 
     .project img {
       width: 25%;
@@ -159,8 +164,8 @@
     <a href="projects.html">Projects</a>
   </nav>
 
-  <header class="hero">
-    <h1>N3C<span style="font-size: 1.5rem; font-weight: 700;">projects</span></h1>
+  <header class="hero" style="text-align: left; padding-left: 2rem;">
+    <h1 style="display: inline-flex; align-items: baseline; gap: 0.5rem;"><span style="font-size: 4rem; font-weight: 800; color: #ff7a00;">N3C</span><span style="font-size: 1.5rem; font-weight: 700; color: #ff7a00;">projects</span></h1>
     <p style="margin-top: 0.5rem; font-size: 1.1rem; color: #333; font-weight: 500; max-width: 600px; margin-inline: auto;">
       Explore member-built tools, automation workflows, and real-world projects that reflect the spirit of no-code innovation.
     </p>
