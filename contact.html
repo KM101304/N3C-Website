@@ -72,9 +72,10 @@
 
     canvas {
       display: block;
-      margin: 2rem auto;
+      margin: 2rem auto 1rem auto;
       border: 2px dashed #888;
       background: #111;
+      position: relative;
     }
 
     #score {
@@ -82,6 +83,33 @@
       text-align: center;
       font-weight: bold;
       margin-top: 0.5rem;
+    }
+
+    #legend {
+      font-size: 0.95rem;
+      color: #aaa;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+
+    #pauseBtn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #1a1a1a;
+      color: #fef7e0;
+      border: none;
+      padding: 6px 12px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .canvas-wrapper {
+      position: relative;
+      width: fit-content;
+      margin: 0 auto;
     }
 
     .footer {
@@ -102,8 +130,8 @@
   <div class="nav">
     <a href="index.html">Home</a>
     <a href="hackathons.html">Hackathons</a>
-    <a href="contact.html">Contact</a>
     <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
   </div>
 
   <div class="main">
@@ -111,8 +139,12 @@
     <p>Send us an email after you defend the inbox:</p>
     <a href="mailto:nocodecodingclub@gmail.com" class="email">nocodecodingclub@gmail.com</a>
 
-    <canvas id="gameCanvas" width="600" height="400"></canvas>
+    <div class="canvas-wrapper">
+      <button id="pauseBtn">Pause</button>
+      <canvas id="gameCanvas" width="600" height="400"></canvas>
+    </div>
     <div id="score">Score: 0</div>
+    <div id="legend">⬅️ ➡️ to move &nbsp; | &nbsp; Spacebar to shoot &nbsp; | &nbsp; Click "Pause" to stop the action</div>
   </div>
 
   <div class="footer">
@@ -123,6 +155,8 @@
   <script>
     const canvas = document.getElementById("gameCanvas");
     const ctx = canvas.getContext("2d");
+    const pauseBtn = document.getElementById("pauseBtn");
+    let paused = false;
 
     let score = 0;
     const keys = {};
@@ -179,15 +213,19 @@
     }
 
     function spawnAsteroid() {
-      asteroids.push({
-        x: Math.random() * canvas.width,
-        y: -20,
-        radius: 15 + Math.random() * 10,
-        speed: 2 + Math.random() * 2
-      });
+      if (!paused) {
+        asteroids.push({
+          x: Math.random() * canvas.width,
+          y: -20,
+          radius: 15 + Math.random() * 10,
+          speed: 2 + Math.random() * 2
+        });
+      }
     }
 
     function updateGame() {
+      if (paused) return;
+
       moveShip();
 
       bullets.forEach(b => b.y -= b.speed);
@@ -195,7 +233,6 @@
 
       asteroids.forEach(a => a.y += a.speed);
 
-      // Collision detection
       bullets.forEach((b, bi) => {
         asteroids.forEach((a, ai) => {
           const dx = b.x - a.x;
@@ -234,6 +271,11 @@
     document.addEventListener("keyup", e => {
       keys[e.code] = false;
     });
+
+    pauseBtn.onclick = () => {
+      paused = !paused;
+      pauseBtn.textContent = paused ? "Play" : "Pause";
+    };
 
     setInterval(spawnAsteroid, 1000);
     gameLoop();
