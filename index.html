@@ -8,8 +8,8 @@
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #f9f9f9;
-      color: #111;
+      background-color: #003566;
+      color: #f1f1f1;
       margin: 0;
       padding: 0;
     }
@@ -21,7 +21,7 @@
       white-space: nowrap;
       box-sizing: border-box;
       font-family: monospace;
-      padding: 0.7rem 0;
+      padding: 0.75rem 0;
       font-size: 1rem;
     }
 
@@ -37,107 +37,95 @@
     }
 
     .container {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      padding: 2rem;
-      gap: 3rem;
-      flex-wrap: wrap;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      text-align: center;
     }
 
-    .brand-block {
-      flex: 1;
-      max-width: 250px;
+    .logo {
+      width: 120px;
+      margin-bottom: 2rem;
     }
 
-    .brand-block h1 {
+    h1 {
       font-size: 3rem;
-      color: #003566;
-      margin: 0;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
     }
 
-    .brand-block p {
-      font-size: 1rem;
-      font-weight: 600;
-    }
-
-    .content {
-      flex: 3;
-      max-width: 600px;
-    }
-
-    .content h2 {
+    h2 {
       font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: #003566;
+      color: #ffffff;
+      margin-top: 3rem;
     }
 
-    .content p {
+    p {
       font-size: 1rem;
+      color: #dddddd;
+      max-width: 700px;
+      margin: 1rem auto;
       line-height: 1.6;
     }
 
     .btn {
       display: inline-block;
-      margin-top: 1rem;
+      margin: 1rem;
       padding: 0.75rem 1.5rem;
-      background-color: #003566;
-      color: white;
+      background-color: #ffffff;
+      color: #003566;
+      font-weight: 600;
       border: none;
       border-radius: 6px;
       text-decoration: none;
-      font-weight: bold;
-    }
-
-    .media-section {
-      text-align: center;
-      padding: 3rem 1rem;
-    }
-
-    .media-section img {
-      max-width: 200px;
-      margin: 1rem;
-      border-radius: 6px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
     .footer {
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 3rem 1rem;
+      color: #888;
       font-size: 0.9rem;
-      color: #666;
+    }
+
+    .media {
+      margin-top: 3rem;
+    }
+
+    .media img {
+      max-width: 300px;
+      border-radius: 6px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      margin: 1rem;
     }
   </style>
 </head>
 <body>
 
   <div class="ticker">
-    <span>HACKATHONS COMING SOON | WORKSHOPS FORMING | BUILD WITHOUT CODE | FOLLOW @NOCODECODINGCLUB | CAPU'S FIRST NO-CODE INNOVATION CLUB |</span>
+    <span>HACKATHONS COMING SOON | BUILD WITHOUT CODE | FOLLOW @NOCODECODINGCLUB | CAPU'S FIRST INNOVATION CLUB FOR NON-CODERS | TOOLS, IDEAS, EXECUTION</span>
   </div>
 
   <div class="container">
-    <div class="brand-block">
-      <h1>N3C</h1>
-      <p>NO-CODE CODING CLUB</p>
-    </div>
+    <img class="logo" src="logo-placeholder.png" alt="N3C Logo">
 
-    <div class="content">
-      <h2>Welcome to N3C</h2>
-      <p>N3C is Capilano University's first innovation club for non-technical builders. We help students from any program learn how to create, automate, and launch real projects using no-code tools like Notion, Zapier, Webflow, and AI — no programming required.</p>
-      <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSep5V7ZO48LEfULqIQbWHyUWtQbvk33cdMbqianUkRIgxgbVw/viewform?usp=header" target="_blank">Join the Club</a>
-      <a class="btn" href="https://www.instagram.com/nocodecodingclub/" target="_blank">Instagram</a>
-    </div>
-  </div>
+    <h1>No Code. No Limits. Just Builders.</h1>
 
-  <div class="media-section">
-    <h2>Our Identity</h2>
-    <img src="logo-placeholder.png" alt="N3C Logo"/>
-    <img src="banner-placeholder.png" alt="Hackathon Banner"/>
+    <p>N3C is Capilano University's first no-code innovation club — helping students from all programs build and launch real projects using tools like Notion, Zapier, Webflow, and AI. No coding required.</p>
+
+    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSep5V7ZO48LEfULqIQbWHyUWtQbvk33cdMbqianUkRIgxgbVw/viewform?usp=header" target="_blank">Join the Club</a>
+    <a class="btn" href="https://www.instagram.com/nocodecodingclub/" target="_blank">Instagram</a>
+
+    <h2>Hackathons. Workshops. Collaboration.</h2>
+    <p>We're creating CapU’s first student-powered incubator for non-coders. Late-night build sessions. Tools you actually use. Real outcomes.</p>
+
+    <div class="media">
+      <img src="banner-placeholder.png" alt="Event Banner">
+    </div>
   </div>
 
   <div class="footer">
-    <p>&copy; 2025 N3C Club – No-Code Coding Club at Capilano University</p>
-    <p>President: Ken Matsuura</p>
+    &copy; 2025 N3C – No-Code Coding Club @ CapU<br>
+    President: Ken Matsuura
   </div>
 
 </body>
