@@ -6,6 +6,10 @@
   <title>N3C – No-Code Coding Club</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -111,48 +115,6 @@
       border: 2px dashed #bbb;
     }
 
-    .about-section {
-      margin-top: 3rem;
-      border-top: 1px solid #ccc;
-      padding-top: 2rem;
-    }
-
-    .bio-row {
-      display: flex;
-      gap: 2rem;
-      align-items: flex-start;
-      flex-wrap: wrap;
-    }
-
-    .bio-text {
-      flex: 1;
-      min-width: 280px;
-    }
-
-    .bio-photo {
-      flex-shrink: 0;
-      max-width: 300px;
-      width: 100%;
-    }
-
-    .bio-photo img {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      border: 2px dashed #bbb;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-top: 2rem;
-    }
-
-    p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
-
     .footer {
       padding: 2rem;
       font-size: 0.9rem;
@@ -193,16 +155,6 @@
       .banner img {
         max-width: 90%;
       }
-
-      .bio-row {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      .bio-text {
-        max-width: 100%;
-      }
     }
   </style>
 </head>
@@ -222,10 +174,10 @@
 
     <div class="main">
       <div class="nav">
-        <a href="#">Home</a>
+        <a href="index.html">Home</a>
         <a href="#">Hackathons</a>
         <a href="#">Contact</a>
-        <a href="#">About Us</a>
+        <a href="about.html">About Us</a> <!-- ✅ Now links to about.html -->
       </div>
 
       <p class="description">
@@ -234,27 +186,6 @@
 
       <div class="banner">
         <img src="hackathon-banner.png" alt="Hackathon@CapU">
-      </div>
-
-      <div class="about-section">
-        <h2>About the Founder – Ken Matsuura</h2>
-        <div class="bio-row">
-          <div class="bio-text">
-            <p>
-              I’m a third-year business student at Capilano University with a concentration in International Business and Logistics. I founded N3C to create space for non-coders to explore tech, automation, and real project building without needing a computer science background.
-            </p>
-            <p>
-              I’m obsessed with systems, tools, AI, and anything that bridges the gap between idea and execution. When I’m not building, I’m lifting, modding old tech, flying drones, or deep diving into philosophy and psychology.
-            </p>
-            <p>
-              N3C isn’t just a club — it’s a launchpad for creative minds. We help you build actual things that matter, faster than you think.
-            </p>
-          </div>
-
-          <div class="bio-photo">
-            <img src="ken-bio.jpg" alt="Ken Matsuura">
-          </div>
-        </div>
       </div>
     </div>
   </div>
