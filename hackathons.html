@@ -68,7 +68,7 @@
       height: 140px;
       position: relative;
       transform-style: preserve-3d;
-      animation: rotateCubeX 12s linear infinite;
+      animation: rotateCubeY 12s linear infinite;
     }
 
     .cube-face {
@@ -88,9 +88,9 @@
     .top    { transform: rotateX(90deg) translateZ(70px); }
     .bottom { transform: rotateX(-90deg) translateZ(70px); }
 
-    @keyframes rotateCubeX {
-      from { transform: rotateX(0deg); }
-      to   { transform: rotateX(360deg); }
+    @keyframes rotateCubeY {
+      from { transform: rotateY(0deg); }
+      to   { transform: rotateY(360deg); }
     }
 
     .main {
@@ -173,7 +173,7 @@
     <a href="about.html">About Us</a>
   </div>
 
-  <!-- Rotating Cube Section -->
+  <!-- Frisbee-style Rotating Cube -->
   <div class="cube-container">
     <div class="cube">
       <div class="cube-face front"></div>
