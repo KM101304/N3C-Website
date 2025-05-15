@@ -53,9 +53,29 @@
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1000px;
       margin: 2rem auto;
       padding: 0 2rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      padding-left: 2rem;
+    }
+
+    .logo h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      color: #ff7a00;
+      margin: 0;
+    }
+
+    .logo span {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ff7a00;
     }
 
     .project {
@@ -84,8 +104,7 @@
     }
 
     .project img {
-      max-width: 100%;
-      width: 80%;
+      width: 25%;
       display: block;
       margin: 1rem auto;
       border-radius: 8px;
@@ -93,9 +112,9 @@
   </style>
 </head>
 <body>
+
   <div class="ticker"><span>N3C – No-Code Coding Club • Student-Built Tools • Real World Applications • Hackathon Coming Soon • Join Us →</span></div>
 
-  <!-- Top Navigation -->
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -104,33 +123,25 @@
     <a href="projects.html">Projects</a>
   </nav>
 
-  <!-- Logo -->
-  <div class="logo" style="display: flex; align-items: baseline; gap: 0.5rem; padding-left: 2rem;">
-    <h1 style="font-size: 4rem; font-weight: 800; color: #ff7a00; margin: 0;">N3C</h1>
-    <span style="font-size: 1.5rem; font-weight: 700; color: #ff7a00;">projects</span>
+  <div class="logo">
+    <h1>N3C</h1>
+    <span>projects</span>
   </div>
 
-  <!-- Content -->
   <div class="container">
+
+    <!-- Project 1 -->
     <div class="project">
       <h2>Offline Radar Setup</h2>
-      <img src="radar-setup.jpg" alt="Radar Setup Image" style="width: 37%; display: block; margin: 1rem auto; border-radius: 8px;"> 
+      <img src="radar-setup.jpg" alt="Radar Setup Image" style="width: 37%;">
       <h3>How AI Was Used</h3>
       <p>AI is integrated for future flight pattern analysis, anomaly detection, and predictive modeling to classify signals and anticipate airspace behavior.</p>
-
       <h3>Purpose of the Project</h3>
       <p>To build a decentralized, offline-capable system that tracks nearby aircraft using ADS-B signals, independent of internet infrastructure.</p>
-
       <h3>Problem It Solves</h3>
-      <p>– Increases local airspace transparency<br>
-         – Bypasses reliance on web-based radar platforms<br>
-         – Opens up learning opportunities in signal intelligence and radio technology</p>
-
+      <p>– Increases local airspace transparency<br>– Bypasses reliance on web-based radar platforms<br>– Opens up learning opportunities in signal intelligence and radio technology</p>
       <h3>Applications</h3>
-      <p>– Aviation education and STEM outreach<br>
-         – Localized airspace monitoring<br>
-         – Experimental systems for drone air traffic coordination</p>
-
+      <p>– Aviation education and STEM outreach<br>– Localized airspace monitoring<br>– Experimental systems for drone air traffic coordination</p>
       <h3>How I Built It</h3>
       <p>
         <strong>Hardware:</strong><br>
@@ -138,79 +149,58 @@
         – Standard SMA antenna<br>
         – ThinkPad T495 (Zorin OS)<br>
         – USB extension cable<br><br>
-
         <strong>Software:</strong><br>
-        – Dump1090 for signal decoding<br>
-        – GQRX for radio spectrum analysis<br>
-        – Optional: Virtual Radar Server<br>
-        – Planned: Python scripts for data logging + AI<br><br>
-
+        – Dump1090, GQRX, Virtual Radar Server (optional)<br>
+        – Python scripts (planned)<br><br>
         <strong>Steps:</strong><br>
-        1. Installed Zorin OS for stability and performance.<br>
-        2. Connected RTL-SDR to USB and configured antenna placement.<br>
-        3. Installed Dump1090 to decode ADS-B signals in real-time.<br>
-        4. Confirmed aircraft visibility in console and GQRX.<br>
-        5. (Planned) Python AI module to analyze, classify, and predict signals.
+        1. Installed Zorin OS<br>
+        2. Connected RTL-SDR & antenna<br>
+        3. Installed Dump1090 & GQRX<br>
+        4. Validated real-time signal capture<br>
+        5. (Planned) AI analysis layer
+      </p>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project">
+      <h2>Automated Reel Maker</h2>
+      <img src="reel-maker-placeholder.jpg" alt="Reel Maker Preview">
+      <h3>How AI Was Used</h3>
+      <p>AI powers every step — from scraping Reddit to generating scripts, voiceovers, and matching visuals using APIs. Captions are stylized for vertical mobile-first formats.</p>
+      <h3>Purpose of the Project</h3>
+      <p>To fully automate short-form content creation (TikToks, Shorts) with a professional style — no editing required.</p>
+      <h3>Problem It Solves</h3>
+      <p>– Eliminates editing time<br>– Enables non-creators to publish videos<br>– Powers consistent content pipelines</p>
+      <h3>Applications</h3>
+      <p>– Niche education/inspiration content<br>– Marketing automation<br>– Passive income content loops</p>
+      <h3>How I Built It</h3>
+      <p>
+        <strong>Tech Stack:</strong><br>
+        Python (MoviePy, ElevenLabs, Pexels, OpenAI)<br><br>
+        <strong>Process:</strong><br>
+        1. Scrape and summarize content<br>
+        2. Generate script<br>
+        3. Voiceover (AI)<br>
+        4. Pull Pexels video<br>
+        5. Add captions and compile into vertical format<br>
+        6. Export MP4
+      </p>
+
+      <h3>Demo Video</h3>
+      <video width="320" height="570" controls style="display: block; margin: 1rem auto; border-radius: 12px;">
+        <source src="reel-demo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <p style="text-align: center; font-style: italic;">
+        Built in under 3 hours as a challenge to automate full video creation.
       </p>
     </div>
   </div>
-<div class="project">
-  <h2>Automated Reel Maker</h2>
-  <img src="reel-maker-placeholder.jpg" alt="Reel Maker Preview" style="width: 25%; display: block; margin: 1rem auto; border-radius: 8px;">
-
-  <h3>How AI Was Used</h3>
-  <p>
-    AI powers every step — from scraping Reddit posts and summarizing content, to generating human-like voiceovers with ElevenLabs and selecting matching B-roll using Pexels. Captions are autogenerated and stylized for mobile-first viewing.
-  </p>
-
-  <h3>Purpose of the Project</h3>
-  <p>
-    To fully automate the production of short-form content (TikToks, YouTube Shorts) with a modern editing style, allowing anyone to publish engaging videos without touching an editor.
-  </p>
-
-  <h3>Problem It Solves</h3>
-  <p>
-    – Eliminates time-consuming manual editing<br>
-    – Reduces barrier to entry for content creators<br>
-    – Supports consistent, scalable output for social media growth
-  </p>
-
-  <h3>Applications</h3>
-  <p>
-    – TikTok/YouTube automation<br>
-    – AI-powered storytelling<br>
-    – Niche content channels and monetization
-  </p>
-
-  <h3>How I Built It</h3>
-  <p>
-    <strong>Tech Stack:</strong><br>
-    – Python (MoviePy, Pexels API, ElevenLabs API, OpenAI)<br>
-    – Reddit post scraper and script generator<br><br>
-
-    <strong>Process:</strong><br>
-    1. Scrapes and summarizes Reddit content<br>
-    2. Converts to a human-style script<br>
-    3. Generates voiceover with ElevenLabs<br>
-    4. Downloads relevant stock video from Pexels<br>
-    5. Auto-edits everything into a vertical 9:16 format with captions<br>
-    6. Outputs a ready-to-post MP4
-  </p>
-
-  <h3>Demo Video</h3>
-  <video width="320" height="570" controls style="display: block; margin: 1rem auto; border-radius: 12px;">
-    <source src="reel-demo.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-
-  <p style="text-align: center; font-style: italic; margin-top: 0.5rem;">
-</div>
-
-  
 
   <!-- Footer -->
   <footer style="background-color: #1a1a1a; color: #fef7e0; text-align: center; padding: 1.5rem 2rem; margin-top: 3rem;">
-    <p style="margin: 0; font-size: 0.95rem;">>© 2025 N3C – No-Code Coding Club @ Capilano University<br>President: Ken Matsuura &copy; 2025 N3C.</p>
+    <p style="margin: 0; font-size: 0.95rem;">© 2025 N3C – No-Code Coding Club @ Capilano University<br>President: Ken Matsuura</p>
   </footer>
 </body>
 </html>
