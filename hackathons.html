@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hackathons – N3C</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
@@ -19,6 +19,14 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+    }
+
+    .banner-header {
+      width: 100%;
+      max-width: 100%;
+      height: 150px;
+      object-fit: cover;
+      display: block;
     }
 
     .ticker {
@@ -78,18 +86,6 @@
       line-height: 1.8;
     }
 
-    .logo-placeholder {
-      margin-top: 2rem;
-      border: 2px dashed #bbb;
-      height: 150px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #777;
-      font-weight: 600;
-      font-size: 1.1rem;
-    }
-
     .footer {
       padding: 2rem;
       font-size: 0.9rem;
@@ -118,6 +114,9 @@
   </style>
 </head>
 <body>
+
+  <!-- ✅ NEW HACKATHON BANNER IMAGE -->
+  <img src="hackathon-banner2.jpg" alt="Hackathon@CapU Banner" class="banner-header" />
 
   <div class="ticker">
     <span>N3C: BUILD WITHOUT CODE | HACKATHONS COMING SOON | FOLLOW @NOCODECODINGCLUB | NO CODE. NO LIMITS. JUST BUILDERS.</span>
@@ -161,10 +160,6 @@
     <p>
       In our last beta hackathon, a 3-person team built a web app in 8 hours that automated club onboarding using Notion, Airtable, and Make. None of them knew each other. None of them wrote code. They left with a live tool they actually used the next week.
     </p>
-
-    <div class="logo-placeholder">
-      [ Hackathon@CapU Logo Placeholder ]
-    </div>
   </div>
 
   <div class="footer">
