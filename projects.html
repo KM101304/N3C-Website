@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>N3Cprojects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #fef7e0;
+      color: #1a1a1a;
+    }
+
+    .ticker {
+      background-color: #111;
+      color: #ffa500;
+      overflow: hidden;
+      white-space: nowrap;
+      font-family: monospace;
+      padding: 0.6rem 0;
+      font-size: 1rem;
+    }
+
+    .ticker span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: ticker 25s linear infinite;
+    }
+
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    nav {
+      background-color: #1a1a1a;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: flex-end;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #fef7e0;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #ffa500;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
+    .logo {
+      text-align: left;
+      padding-left: 2rem;
+    }
+
+    .logo h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      color: #ff7a00;
+      margin: 0;
+      line-height: 1;
+    }
+
+    .logo span {
+      font-size: 1.5rem;
+      font-weight: 600;
+      display: block;
+      color: #ff7a00;
+      margin-top: -0.5rem;
+    }
+
+    .project {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      margin-top: 2rem;
+    }
+
+    .project h2 {
+      font-size: 2rem;
+      color: #e75b00;
+      margin-top: 0;
+    }
+
+    .project h3 {
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    .project p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .project img {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="ticker"><span>N3C – No-Code Coding Club • Student-Built Tools • Real World Applications • Hackathon Coming Soon • Join Us →</span></div>
+
+  <!-- Top Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="hackathons.html">Hackathon</a>
+  </nav>
+
+  <!-- Logo -->
+  <div class="logo">
+    <h1>N3C</h1>
+    <span>projects</span>
+  </div>
+
+  <!-- Content -->
+  <div class="container">
+    <div class="project">
+      <h2>Offline Radar Setup</h2>
+      <img src="assets/radar-setup-placeholder.jpg" alt="Radar Setup Image">
+      <h3>How AI Was Used</h3>
+      <p>AI is integrated for future flight pattern analysis, anomaly detection, and predictive modeling to classify signals and anticipate airspace behavior.</p>
+
+      <h3>Purpose of the Project</h3>
+      <p>To build a decentralized, offline-capable system that tracks nearby aircraft using ADS-B signals, independent of internet infrastructure.</p>
+
+      <h3>Problem It Solves</h3>
+      <p>– Increases local airspace transparency<br>
+         – Bypasses reliance on web-based radar platforms<br>
+         – Opens up learning opportunities in signal intelligence and radio technology</p>
+
+      <h3>Applications</h3>
+      <p>– Aviation education and STEM outreach<br>
+         – Localized airspace monitoring<br>
+         – Experimental systems for drone air traffic coordination</p>
+
+      <h3>How I Built It</h3>
+      <p>
+        <strong>Hardware:</strong><br>
+        – RTL-SDR v3 USB dongle<br>
+        – Standard SMA antenna<br>
+        – ThinkPad T495 (Zorin OS)<br>
+        – USB extension cable<br><br>
+
+        <strong>Software:</strong><br>
+        – Dump1090 for signal decoding<br>
+        – GQRX for radio spectrum analysis<br>
+        – Optional: Virtual Radar Server<br>
+        – Planned: Python scripts for data logging + AI<br><br>
+
+        <strong>Steps:</strong><br>
+        1. Installed Zorin OS for stability and performance.<br>
+        2. Connected RTL-SDR to USB and configured antenna placement.<br>
+        3. Installed Dump1090 to decode ADS-B signals in real-time.<br>
+        4. Confirmed aircraft visibility in console and GQRX.<br>
+        5. (Planned) Python AI module to analyze, classify, and predict signals.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
