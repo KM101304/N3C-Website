@@ -107,48 +107,6 @@
       font-size: 0.9rem;
       color: #999;
     }
-
-    /* Cube Styling (smaller version) */
-    .cube-container {
-      width: 150px;
-      height: 150px;
-      perspective: 800px;
-      margin-bottom: 2rem;
-    }
-
-    .cube {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      transform-style: preserve-3d;
-      animation: rotateCube 8s infinite linear;
-    }
-
-    .face {
-      position: absolute;
-      width: 150px;
-      height: 150px;
-      background: #1a1a1a;
-      color: #fef7e0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1rem;
-      border: 2px solid #fff;
-    }
-
-    .face.front  { transform: rotateY(0deg) translateZ(75px); }
-    .face.back   { transform: rotateY(180deg) translateZ(75px); }
-    .face.right  { transform: rotateY(90deg) translateZ(75px); }
-    .face.left   { transform: rotateY(-90deg) translateZ(75px); }
-    .face.top    { transform: rotateX(90deg) translateZ(75px); }
-    .face.bottom { transform: rotateX(-90deg) translateZ(75px); }
-
-    @keyframes rotateCube {
-      0%   { transform: rotateX(0deg) rotateY(0deg); }
-      100% { transform: rotateX(360deg) rotateY(360deg); }
-    }
   </style>
 </head>
 <body>
@@ -171,17 +129,6 @@
         <a href="#">Hackathons</a>
         <a href="#">Contact</a>
         <a href="#">About Us</a>
-      </div>
-
-      <div class="cube-container">
-        <div class="cube">
-          <div class="face front">N3C</div>
-          <div class="face back">NO CODE</div>
-          <div class="face right">JUST BUILD</div>
-          <div class="face left">TOOLS</div>
-          <div class="face top">ZAPIER</div>
-          <div class="face bottom">AI</div>
-        </div>
       </div>
 
       <p class="description">
