@@ -111,12 +111,22 @@
     .live-feed {
       margin-top: 2rem;
       display: flex;
+      gap: 2rem;
       flex-wrap: wrap;
+    }
+
+    .left-column {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
       gap: 2rem;
     }
 
-    .live-feed .video-box, .live-feed .reddit-box {
-      flex: 1 1 300px;
+    .right-column {
+      flex: 1;
+    }
+
+    .video-box, .news-box, .reddit-box {
       border: 2px dashed #ccc;
       padding: 1rem;
       background: #fffbe9;
@@ -128,15 +138,15 @@
       margin-bottom: 1rem;
     }
 
-    .live-feed .video-container {
+    .video-container {
       position: relative;
-      padding-bottom: 40%;
+      padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
       width: 100%;
     }
 
-    .live-feed iframe {
+    .video-container iframe {
       position: absolute;
       top: 0;
       left: 0;
@@ -145,12 +155,12 @@
       border: 0;
     }
 
-    .footer {
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #999;
-      background-color: #fef7e0;
-      text-align: center;
+    .news-article {
+      margin-bottom: 1rem;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #fff;
     }
 
     .thumbnail {
@@ -161,37 +171,20 @@
       border: 1px solid #ccc;
     }
 
-    @media screen and (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        padding: 1.5rem;
-      }
+    .footer {
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #999;
+      background-color: #fef7e0;
+      text-align: center;
+    }
 
-      .sidebar {
-        width: 100%;
-        text-align: center;
-      }
-
-      .sidebar h1 {
-        font-size: 3rem;
-      }
-
-      .nav {
-        justify-content: center;
-      }
-
-      .description {
-        font-size: 1rem;
-        text-align: center;
-      }
-
-      .banner {
-        text-align: center;
-      }
-
-      .banner img {
-        max-width: 90%;
-      }
+    .reddit-post {
+      margin-bottom: 1rem;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #fff;
     }
   </style>
 </head>
@@ -228,20 +221,23 @@
       </div>
 
       <div class="live-feed">
-        <div class="video-box">
-          <h2>Live Global Feed</h2>
-          <div class="video-container">
-            <iframe 
-              src="https://player.twitch.tv/?channel=rayasianboy&parent=yourdomain.com" 
-              allowfullscreen 
-              scrolling="no">
-            </iframe>
+        <div class="left-column">
+          <div class="video-box">
+            <h2>Live Global Feed</h2>
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/qzMQza8xZCc?autoplay=1&mute=1" allowfullscreen allow="autoplay; encrypted-media" frameborder="0"></iframe>
+            </div>
+          </div>
+          <div class="news-box" id="news-box">
+            <h2>Top News Stories</h2>
           </div>
         </div>
 
-        <div class="reddit-box">
-          <h2>Top Reddit Posts</h2>
-          <ul id="reddit-posts" style="padding-left: 1rem;"></ul>
+        <div class="right-column">
+          <div class="reddit-box">
+            <h2>Top Reddit Posts</h2>
+            <div id="reddit-posts"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -253,50 +249,73 @@
   </div>
 
   <script>
-    function updateRedditPosts() {
-      fetch("https://www.reddit.com/r/popular/top.json?limit=5")
-        .then(res => res.json())
-        .then(data => {
-          const list = document.getElementById("reddit-posts");
-          list.innerHTML = "";
-          data.data.children.forEach(post => {
-            const li = document.createElement("li");
-
-            const title = document.createElement("a");
-            title.href = `https://reddit.com${post.data.permalink}`;
-            title.textContent = post.data.title;
-            title.target = "_blank";
-            title.style.fontWeight = "bold";
-
-            const date = new Date(post.data.created_utc * 1000).toLocaleString();
-            const meta = document.createElement("div");
-            meta.textContent = `Posted: ${date}`;
-            meta.style.fontSize = "0.9rem";
-            meta.style.color = "#555";
-
-            const content = document.createElement("div");
-            content.textContent = post.data.selftext ? post.data.selftext.slice(0, 100) + "..." : "(No text content)";
-            content.style.fontSize = "0.95rem";
-            content.style.marginBottom = "0.5rem";
-
-            li.appendChild(title);
-            li.appendChild(meta);
-            li.appendChild(content);
-
-            if (post.data.thumbnail && post.data.thumbnail.startsWith("http")) {
-              const img = document.createElement("img");
-              img.src = post.data.thumbnail;
-              img.className = "thumbnail";
-              li.appendChild(img);
-            }
-
-            list.appendChild(li);
-          });
+    async function updateNews() {
+      try {
+        const response = await fetch('https://api.currentsapi.services/v1/latest-news?apiKey=YOUR_API_KEY');
+        const data = await response.json();
+        const container = document.getElementById("news-box");
+        data.news.slice(0, 4).forEach(article => {
+          const item = document.createElement("div");
+          item.className = "news-article";
+          const title = `<a href="${article.url}" target="_blank" style="font-weight:bold;">${article.title}</a>`;
+          const source = `<div style="font-size:0.85rem;color:#555;">${article.source} • ${new Date(article.published).toLocaleString()}</div>`;
+          const img = article.image ? `<img src="${article.image}" class="thumbnail">` : "";
+          item.innerHTML = title + source + img;
+          container.appendChild(item);
         });
+      } catch (e) {
+        document.getElementById("news-box").innerText = "Failed to load news.";
+      }
+    }
+
+    async function updateRedditPosts() {
+      const list = document.getElementById("reddit-posts");
+      list.innerHTML = "Loading...";
+      try {
+        const res = await fetch("https://www.reddit.com/r/popular/hot.json?limit=5");
+        const data = await res.json();
+        list.innerHTML = "";
+        data.data.children.forEach(post => {
+          const box = document.createElement("div");
+          box.className = "reddit-post";
+
+          const title = document.createElement("a");
+          title.href = `https://reddit.com${post.data.permalink}`;
+          title.textContent = post.data.title;
+          title.target = "_blank";
+          title.style.fontWeight = "bold";
+
+          const date = new Date(post.data.created_utc * 1000).toLocaleString();
+          const meta = document.createElement("div");
+          meta.textContent = `Posted by u/${post.data.author} • ${date}`;
+          meta.style.fontSize = "0.85rem";
+          meta.style.color = "#555";
+
+          const content = document.createElement("div");
+          content.textContent = post.data.selftext ? post.data.selftext.slice(0, 100) + "..." : "(No text content)";
+
+          box.appendChild(title);
+          box.appendChild(meta);
+          box.appendChild(content);
+
+          if (post.data.thumbnail && post.data.thumbnail.startsWith("http")) {
+            const img = document.createElement("img");
+            img.src = post.data.thumbnail;
+            img.className = "thumbnail";
+            box.appendChild(img);
+          }
+
+          list.appendChild(box);
+        });
+      } catch (error) {
+        list.innerHTML = "Error loading posts. Try again later.";
+      }
     }
 
     updateRedditPosts();
-    setInterval(updateRedditPosts, 300000); // update every 5 minutes
+    updateNews();
+    setInterval(updateRedditPosts, 300000);
+    setInterval(updateNews, 3600000);
   </script>
 </body>
 </html>
