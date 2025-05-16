@@ -108,12 +108,57 @@
       cursor: pointer;
     }
 
+    .live-feed {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .live-feed .video-box, .live-feed .reddit-box {
+      flex: 1 1 300px;
+      border: 2px dashed #ccc;
+      padding: 1rem;
+      background: #fffbe9;
+    }
+
+    .live-feed h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .live-feed .video-container {
+      position: relative;
+      padding-bottom: 40%;
+      height: 0;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .live-feed iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
     .footer {
       padding: 2rem;
       font-size: 0.9rem;
       color: #999;
       background-color: #fef7e0;
       text-align: center;
+    }
+
+    .thumbnail {
+      max-width: 100%;
+      height: auto;
+      margin-top: 0.5rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
     }
 
     @media screen and (max-width: 768px) {
@@ -151,7 +196,6 @@
   </style>
 </head>
 <body>
-
   <div class="ticker">
     <span>N3C: BUILD WITHOUT CODE | FOLLOW @NOCODECODINGCLUB | NO CODE. NO LIMITS. JUST BUILDERS.</span>
   </div>
@@ -182,6 +226,24 @@
           <img src="hackathon-banner.png" alt="Hackathon@CapU">
         </a>
       </div>
+
+      <div class="live-feed">
+        <div class="video-box">
+          <h2>Live Global Feed</h2>
+          <div class="video-container">
+            <iframe 
+              src="https://player.twitch.tv/?channel=rayasianboy&parent=yourdomain.com" 
+              allowfullscreen 
+              scrolling="no">
+            </iframe>
+          </div>
+        </div>
+
+        <div class="reddit-box">
+          <h2>Top Reddit Posts</h2>
+          <ul id="reddit-posts" style="padding-left: 1rem;"></ul>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -190,5 +252,51 @@
     President: Ken Matsuura
   </div>
 
+  <script>
+    function updateRedditPosts() {
+      fetch("https://www.reddit.com/r/popular/top.json?limit=5")
+        .then(res => res.json())
+        .then(data => {
+          const list = document.getElementById("reddit-posts");
+          list.innerHTML = "";
+          data.data.children.forEach(post => {
+            const li = document.createElement("li");
+
+            const title = document.createElement("a");
+            title.href = `https://reddit.com${post.data.permalink}`;
+            title.textContent = post.data.title;
+            title.target = "_blank";
+            title.style.fontWeight = "bold";
+
+            const date = new Date(post.data.created_utc * 1000).toLocaleString();
+            const meta = document.createElement("div");
+            meta.textContent = `Posted: ${date}`;
+            meta.style.fontSize = "0.9rem";
+            meta.style.color = "#555";
+
+            const content = document.createElement("div");
+            content.textContent = post.data.selftext ? post.data.selftext.slice(0, 100) + "..." : "(No text content)";
+            content.style.fontSize = "0.95rem";
+            content.style.marginBottom = "0.5rem";
+
+            li.appendChild(title);
+            li.appendChild(meta);
+            li.appendChild(content);
+
+            if (post.data.thumbnail && post.data.thumbnail.startsWith("http")) {
+              const img = document.createElement("img");
+              img.src = post.data.thumbnail;
+              img.className = "thumbnail";
+              li.appendChild(img);
+            }
+
+            list.appendChild(li);
+          });
+        });
+    }
+
+    updateRedditPosts();
+    setInterval(updateRedditPosts, 300000); // update every 5 minutes
+  </script>
 </body>
 </html>
