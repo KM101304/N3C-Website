@@ -6,6 +6,16 @@
   <title>Hackathons – N3C</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --cube-size: 100px;
+    }
+
+    @media screen and (max-width: 768px) {
+      :root {
+        --cube-size: 80px;
+      }
+    }
+
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
@@ -35,6 +45,7 @@
       max-width: 1000px;
       margin: 0 auto;
       padding: 2rem;
+      text-align: left;
     }
     .nav {
       margin-bottom: 1.5rem;
@@ -56,33 +67,38 @@
     }
     .cube-container {
       perspective: 1000px;
+      width: var(--cube-size);
+      height: var(--cube-size);
     }
     .cube {
-      width: 100px;
-      height: 100px;
+      width: 100%;
+      height: 100%;
       position: relative;
       transform-style: preserve-3d;
       animation: rotateCubeY 12s linear infinite;
     }
     .cube-face {
       position: absolute;
-      width: 100px;
-      height: 100px;
+      width: var(--cube-size);
+      height: var(--cube-size);
       background-image: url('hackathon-banner2.jpg');
       background-size: cover;
       background-position: center;
       border: 1px solid #ccc;
+      box-sizing: border-box;
     }
-    .front  { transform: rotateY(0deg) translateZ(50px); }
-    .back   { transform: rotateY(180deg) translateZ(50px); }
-    .right  { transform: rotateY(90deg) translateZ(50px); }
-    .left   { transform: rotateY(-90deg) translateZ(50px); }
-    .top    { transform: rotateX(90deg) translateZ(50px); }
-    .bottom { transform: rotateX(-90deg) translateZ(50px); }
+    .front  { transform: rotateY(0deg) translateZ(calc(var(--cube-size) / 2)); }
+    .back   { transform: rotateY(180deg) translateZ(calc(var(--cube-size) / 2)); }
+    .right  { transform: rotateY(90deg) translateZ(calc(var(--cube-size) / 2)); }
+    .left   { transform: rotateY(-90deg) translateZ(calc(var(--cube-size) / 2)); }
+    .top    { transform: rotateX(90deg) translateZ(calc(var(--cube-size) / 2)); }
+    .bottom { transform: rotateX(-90deg) translateZ(calc(var(--cube-size) / 2)); }
+
     @keyframes rotateCubeY {
       from { transform: rotateY(0deg); }
       to   { transform: rotateY(360deg); }
     }
+
     h1 {
       font-size: 2.8rem;
       font-weight: 800;
@@ -115,6 +131,7 @@
       max-width: 100%;
       border-radius: 6px;
       margin-bottom: 1rem;
+      display: block;
     }
     .story-meta {
       font-size: 0.9rem;
@@ -128,21 +145,16 @@
     @media screen and (max-width: 768px) {
       .nav {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         gap: 1rem;
-        padding-left: 0;
+        padding-left: 1rem;
       }
       .banner {
         flex-direction: column;
         align-items: center;
       }
-      .cube {
-        width: 80px;
-        height: 80px;
-      }
-      .cube-face {
-        width: 80px;
-        height: 80px;
+      .container {
+        padding: 1.5rem;
       }
     }
   </style>
@@ -178,20 +190,20 @@
     <h2>Goals of Our Hackathons</h2>
     <p>
       Our events aim to:
-      <ul>
-        <li>Enable non-technical students to build functional products quickly</li>
-        <li>Encourage cross-discipline collaboration</li>
-        <li>Showcase what can be built using tools like Webflow, Zapier, Figma, and AI</li>
-        <li>Develop execution and iteration skills under pressure</li>
-      </ul>
     </p>
+    <ul>
+      <li>Enable non-technical students to build functional products quickly</li>
+      <li>Encourage cross-discipline collaboration</li>
+      <li>Showcase what can be built using tools like Webflow, Zapier, Figma, and AI</li>
+      <li>Develop execution and iteration skills under pressure</li>
+    </ul>
     <h2>How It Works</h2>
     <p>
       Participants form teams at the start of the event. A challenge theme is announced, and then teams use no-code tools to create their solution within a 24-hour window. Mentors provide support. Final projects are presented to a panel of judges.
     </p>
     <h2>Featured Hackathon Story</h2>
     <div class="hackathon-story">
-      <img src="https://images.unsplash.com/photo-1665686301374-4f1887c2aef4" alt="Hackathon Event Thumbnail">
+      <img src="https://cdn.mos.cms.futurecdn.net/Z7z2HkT8zxuQ6P2th4zqGe-1200-80.jpg" alt="Hackathon Event Thumbnail">
       <div class="story-title">How Team Starling Built an Award-Winning Mental Health App in 24 Hours</div>
       <div class="story-meta">By Megan Slack • June 27, 2023 • <a href="https://www.creativebloq.com/news/mental-health-app-hackathon" target="_blank">CreativeBloq.com</a></div>
       <p>
