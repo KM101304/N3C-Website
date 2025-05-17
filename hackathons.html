@@ -9,14 +9,12 @@
     :root {
       --cube-size: 100px;
     }
-
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
       background-color: #fef7e0;
       color: #1a1a1a;
     }
-
     .ticker {
       background-color: #111;
       color: #ffa500;
@@ -26,25 +24,21 @@
       padding: 0.6rem 0;
       font-size: 1rem;
     }
-
     .ticker span {
       display: inline-block;
       padding-left: 100%;
       animation: ticker 25s linear infinite;
     }
-
     @keyframes ticker {
       0% { transform: translateX(0); }
       100% { transform: translateX(-100%); }
     }
-
     .container {
       display: flex;
       flex-direction: row;
       padding: 2rem;
       gap: 2rem;
     }
-
     .sidebar {
       width: 220px;
       flex-shrink: 0;
@@ -52,14 +46,12 @@
       flex-direction: column;
       align-items: flex-start;
     }
-
     .cube-container {
       perspective: 1000px;
       width: var(--cube-size);
       height: var(--cube-size);
       margin-left: 0.5rem;
     }
-
     .cube {
       width: 100%;
       height: 100%;
@@ -67,7 +59,6 @@
       transform-style: preserve-3d;
       animation: rotateCubeY 12s linear infinite;
     }
-
     .cube-face {
       position: absolute;
       width: var(--cube-size);
@@ -78,53 +69,44 @@
       border: 1px solid #ccc;
       box-sizing: border-box;
     }
-
-    .front  { transform: rotateY(0deg) translateZ(calc(var(--cube-size) / 2)); }
-    .back   { transform: rotateY(180deg) translateZ(calc(var(--cube-size) / 2)); }
-    .right  { transform: rotateY(90deg) translateZ(calc(var(--cube-size) / 2)); }
-    .left   { transform: rotateY(-90deg) translateZ(calc(var(--cube-size) / 2)); }
-    .top    { transform: rotateX(90deg) translateZ(calc(var(--cube-size) / 2)); }
-    .bottom { transform: rotateX(-90deg) translateZ(calc(var(--cube-size) / 2)); }
-
+    .front  { transform: rotateY(0deg) translateZ(50px); }
+    .back   { transform: rotateY(180deg) translateZ(50px); }
+    .right  { transform: rotateY(90deg) translateZ(50px); }
+    .left   { transform: rotateY(-90deg) translateZ(50px); }
+    .top    { transform: rotateX(90deg) translateZ(50px); }
+    .bottom { transform: rotateX(-90deg) translateZ(50px); }
     @keyframes rotateCubeY {
       from { transform: rotateY(0deg); }
       to   { transform: rotateY(360deg); }
     }
-
     .main {
       flex-grow: 1;
     }
-
     .nav {
       margin-bottom: 1.5rem;
       display: flex;
       flex-wrap: wrap;
       gap: 1.5rem;
     }
-
     .nav a {
       text-decoration: none;
       font-weight: 600;
       color: #1a1a1a;
     }
-
     h1 {
       font-size: 2.8rem;
       font-weight: 800;
       margin-bottom: 1rem;
     }
-
     h2 {
       font-size: 1.5rem;
       font-weight: 700;
       margin-top: 2.5rem;
     }
-
     p {
       font-size: 1.1rem;
       line-height: 1.8;
     }
-
     .hackathon-story {
       margin-top: 2rem;
       border: 1px solid #ccc;
@@ -132,25 +114,45 @@
       border-radius: 0;
       background: #fff;
     }
-
     .hackathon-story img {
       max-width: 100%;
       border-radius: 0;
       margin-bottom: 1rem;
       display: block;
     }
-
     .story-meta {
       font-size: 0.9rem;
       color: #555;
       margin-bottom: 0.5rem;
     }
-
     .story-title {
       font-weight: bold;
       font-size: 1.2rem;
     }
-
+    .reddit-showcase {
+      margin-top: 3rem;
+      padding: 1.5rem;
+      border: 1px solid #ccc;
+      background: #fff;
+    }
+    .reddit-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .reddit-card {
+      flex: 1;
+      min-width: 280px;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      background: #fff;
+    }
+    .reddit-card img {
+      width: 100%;
+      display: block;
+      margin-bottom: 0.75rem;
+    }
     .footer {
       padding: 2rem;
       font-size: 0.9rem;
@@ -158,23 +160,19 @@
       background-color: #fef7e0;
       text-align: center;
     }
-
     @media screen and (max-width: 768px) {
       .container {
         flex-direction: column;
         padding: 1rem;
       }
-
       .sidebar {
         align-items: flex-start;
         width: 100%;
       }
-
       .nav {
         flex-direction: column;
         gap: 1rem;
       }
-
       h1 {
         font-size: 2.2rem;
         text-align: center;
@@ -186,7 +184,6 @@
   <div class="ticker">
     <span>N3C: BUILD WITHOUT CODE | HACKATHONS COMING SOON | FOLLOW @NOCODECODINGCLUB | NO CODE. NO LIMITS. JUST BUILDERS.</span>
   </div>
-
   <div class="container">
     <div class="sidebar">
       <div class="cube-container">
@@ -200,7 +197,6 @@
         </div>
       </div>
     </div>
-
     <div class="main">
       <div class="nav">
         <a href="index.html">Home</a>
@@ -209,12 +205,10 @@
         <a href="contact.html">Contact</a>
         <a href="projects.html">Projects</a>
       </div>
-
       <h1>Hackathons @ N3C</h1>
       <p>
         N3C Hackathons are open-invitation, time-limited events where creators of all backgrounds work in small teams to build real, no-code products. These aren't just design jams — they're focused on delivering MVPs using modern tools and rapid collaboration.
       </p>
-
       <h2>Goals of Our Hackathons</h2>
       <ul>
         <li>Enable non-technical students to build functional products quickly</li>
@@ -222,24 +216,41 @@
         <li>Showcase what can be built using tools like Webflow, Zapier, Figma, and AI</li>
         <li>Develop execution and iteration skills under pressure</li>
       </ul>
-
       <h2>How It Works</h2>
       <p>
         Participants form teams at the start of the event. A challenge theme is announced, and then teams use no-code tools to create their solution within a 24-hour window. Mentors provide support. Final projects are presented to a panel of judges.
       </p>
-
       <h2>Featured Hackathon Story</h2>
       <div class="hackathon-story">
         <div class="story-title">How Team Starling Built an Award-Winning Mental Health App in 24 Hours</div>
         <div class="story-meta">By Megan Slack • June 27, 2023 • <a href="https://www.creativebloq.com/news/mental-health-app-hackathon" target="_blank">CreativeBloq.com</a></div>
         <p>
           At the 2023 MindHack London event, a student team called Starling created a mental health tracking app designed for young people. Built using no-code platforms like Glide and Canva, the app impressed judges with its polished UI and focus on user empathy.
-          What set Starling apart was their ability to rapidly wireframe, test, and iterate on a working solution — all within one day. Their story is a testament to how meaningful, functional apps can be launched without writing a single line of code.
+          What set Starling apart was their ability to rapidly wireframe, test, and iterate on a working solution — all within one day.
         </p>
+      </div>
+      <div class="reddit-showcase">
+        <h2>Hackathon Builds from Reddit</h2>
+        <div class="reddit-gallery">
+          <div class="reddit-card">
+            <img src="https://i.redd.it/cutout_canvas_app.jpg" alt="Cutout Canvas">
+            <p><strong>Cutout Canvas:</strong> A collage creation app built during Vision Hack. Great for drag-and-drop creativity.</p>
+            <a href="https://www.reddit.com/r/VisionPro/comments/1fi5mh5/vision_hack_hackathon_introducing_cutout_canvas/" target="_blank">View on Reddit</a>
+          </div>
+          <div class="reddit-card">
+            <img src="https://i.redd.it/flutter_sms_plugin.jpg" alt="Flutter Plugin">
+            <p><strong>SMS Plugin:</strong> A custom Flutter plugin for background messaging, built at a FlutterDev hackathon.</p>
+            <a href="https://www.reddit.com/r/FlutterDev/comments/1gwdxad/created_a_flutter_sms_background_plugin_after/" target="_blank">View on Reddit</a>
+          </div>
+          <div class="reddit-card">
+            <img src="https://i.redd.it/ai_medical_detection.jpg" alt="AI Detection">
+            <p><strong>AI Diagnosis:</strong> Built during an AI hackathon in Pune to detect medical conditions using image analysis.</p>
+            <a href="https://www.reddit.com/r/learnmachinelearning/comments/1j0ay1i/can_you_help_me_in_my_hackathon_project_of_ai/" target="_blank">View on Reddit</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
   <div class="footer">
     &copy; 2025 N3C – No-Code Coding Club @ Capilano University<br>
     President: Ken Matsuura
