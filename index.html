@@ -35,7 +35,6 @@
       flex-direction: row;
       padding: 2rem;
       gap: 2rem;
-      flex: 1;
     }
     .sidebar {
       width: 220px;
@@ -98,14 +97,23 @@
       flex: 1;
     }
     .video-box, .news-box, .reddit-box {
-      border: 2px dashed #ccc;
-      padding: 1rem;
-      background: #fffbe9;
+      border: 2px solid #e0e0e0;
+      padding: 1.5rem;
+      border-radius: 10px;
+      background: #fffdf5;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .live-feed h2 {
-      font-size: 1.5rem;
+    .video-box:hover, .news-box:hover, .reddit-box:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+    .video-box h2, .news-box h2, .reddit-box h2 {
+      font-size: 1.6rem;
       font-weight: 800;
       margin-bottom: 1rem;
+      border-bottom: 2px solid #1a1a1a;
+      padding-bottom: 0.4rem;
     }
     .video-container {
       position: relative;
@@ -131,7 +139,7 @@
       transition: background-color 0.2s;
     }
     .news-article:hover {
-      background-color: #fff3c2;
+      background-color: #f0f0f0;
     }
     .news-title {
       font-weight: bold;
@@ -168,6 +176,12 @@
       border: 1px solid #ccc;
       border-radius: 6px;
       background: #fff;
+    }
+    .reddit-post img.thumbnail {
+      margin-top: 0.5rem;
+      max-width: 100%;
+      border-radius: 6px;
+      display: block;
     }
     @media (max-width: 768px) {
       .container {
@@ -212,6 +226,7 @@
       <p class="description">
         Capilano University's first innovation club for non-coders. Whether you're in business, film, psych, or anything in between — we’ll show you how to build and automate using tools like Notion, AI, Zapier, and Webflow.
       </p>
+      <h2 style="font-size: 2rem; font-weight: 800; margin: 2rem 0 1rem 0;">Explore the Latest:</h2>
       <div class="live-feed">
         <div class="left-column">
           <div class="video-box">
@@ -220,8 +235,9 @@
               <iframe src="https://www.youtube.com/embed/pv2ZuYu404c?autoplay=1&mute=1" allowfullscreen allow="autoplay; encrypted-media" frameborder="0"></iframe>
             </div>
           </div>
-          <div class="news-box" id="news-box">
+          <div class="news-box">
             <h2>Top News Stories</h2>
+            <div id="news-box"></div>
           </div>
         </div>
         <div class="right-column">
@@ -256,15 +272,12 @@
           const description = item.querySelector("description").textContent;
           const articleBox = document.createElement("div");
           articleBox.className = "news-article";
-
-          const html = `
+          articleBox.innerHTML = `
             <div class='news-title'><a href='${link}' target='_blank'>${title}</a></div>
             <div class='news-meta'>BBC News • ${new Date(pubDate).toLocaleString()}</div>
             <div class='news-summary'>${description.slice(0, 150)}...</div>
             <a href='${link}' class='news-link-button' target='_blank'>Read Full Article</a>
           `;
-
-          articleBox.innerHTML = html;
           container.appendChild(articleBox);
         });
       } catch (e) {
