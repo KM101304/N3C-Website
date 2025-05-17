@@ -6,21 +6,13 @@
   <title>Hackathons – N3C</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Inter', sans-serif;
       background-color: #fef7e0;
       color: #1a1a1a;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
     }
-
     .ticker {
       background-color: #111;
       color: #ffa500;
@@ -30,195 +22,187 @@
       padding: 0.6rem 0;
       font-size: 1rem;
     }
-
     .ticker span {
       display: inline-block;
       padding-left: 100%;
       animation: ticker 25s linear infinite;
     }
-
     @keyframes ticker {
       0% { transform: translateX(0); }
       100% { transform: translateX(-100%); }
     }
-
-    .nav {
-      display: flex;
-      justify-content: center;
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
       padding: 2rem;
-      gap: 2rem;
     }
-
+    .nav {
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding-left: 2rem;
+    }
     .nav a {
       text-decoration: none;
       font-weight: 600;
       color: #1a1a1a;
     }
-
+    .banner {
+      display: flex;
+      align-items: center;
+      padding: 2rem;
+      gap: 2rem;
+    }
     .cube-container {
       perspective: 1000px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 3rem;
     }
-
     .cube {
-      width: 140px;
-      height: 140px;
+      width: 100px;
+      height: 100px;
       position: relative;
       transform-style: preserve-3d;
       animation: rotateCubeY 12s linear infinite;
     }
-
     .cube-face {
       position: absolute;
-      width: 140px;
-      height: 140px;
+      width: 100px;
+      height: 100px;
       background-image: url('hackathon-banner2.jpg');
       background-size: cover;
       background-position: center;
       border: 1px solid #ccc;
     }
-
-    .front  { transform: rotateY(0deg) translateZ(70px); }
-    .back   { transform: rotateY(180deg) translateZ(70px); }
-    .right  { transform: rotateY(90deg) translateZ(70px); }
-    .left   { transform: rotateY(-90deg) translateZ(70px); }
-    .top    { transform: rotateX(90deg) translateZ(70px); }
-    .bottom { transform: rotateX(-90deg) translateZ(70px); }
-
+    .front  { transform: rotateY(0deg) translateZ(50px); }
+    .back   { transform: rotateY(180deg) translateZ(50px); }
+    .right  { transform: rotateY(90deg) translateZ(50px); }
+    .left   { transform: rotateY(-90deg) translateZ(50px); }
+    .top    { transform: rotateX(90deg) translateZ(50px); }
+    .bottom { transform: rotateX(-90deg) translateZ(50px); }
     @keyframes rotateCubeY {
       from { transform: rotateY(0deg); }
       to   { transform: rotateY(360deg); }
     }
-
-    .main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-
     h1 {
       font-size: 2.8rem;
       font-weight: 800;
       margin-bottom: 1rem;
     }
-
     h2 {
       font-size: 1.5rem;
       font-weight: 700;
       margin-top: 2.5rem;
     }
-
     p {
       font-size: 1.1rem;
       line-height: 1.8;
     }
-
     .footer {
       padding: 2rem;
       font-size: 0.9rem;
       color: #999;
       background-color: #fef7e0;
       text-align: center;
-      margin-top: auto;
     }
-
+    .hackathon-story {
+      margin-top: 2rem;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      border-radius: 8px;
+      background: #fff;
+    }
+    .hackathon-story img {
+      max-width: 100%;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+    .story-meta {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 0.5rem;
+    }
+    .story-title {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
     @media screen and (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
-        text-align: center;
-      }
-
       .nav {
         flex-direction: column;
         align-items: center;
         gap: 1rem;
+        padding-left: 0;
       }
-
-      .main {
-        padding: 1.5rem;
+      .banner {
+        flex-direction: column;
+        align-items: center;
       }
-
       .cube {
-        width: 120px;
-        height: 120px;
+        width: 80px;
+        height: 80px;
       }
-
       .cube-face {
-        width: 120px;
-        height: 120px;
+        width: 80px;
+        height: 80px;
       }
-
-      .front  { transform: rotateY(0deg) translateZ(60px); }
-      .back   { transform: rotateY(180deg) translateZ(60px); }
-      .right  { transform: rotateY(90deg) translateZ(60px); }
-      .left   { transform: rotateY(-90deg) translateZ(60px); }
-      .top    { transform: rotateX(90deg) translateZ(60px); }
-      .bottom { transform: rotateX(-90deg) translateZ(60px); }
     }
   </style>
 </head>
 <body>
-
   <div class="ticker">
     <span>N3C: BUILD WITHOUT CODE | HACKATHONS COMING SOON | FOLLOW @NOCODECODINGCLUB | NO CODE. NO LIMITS. JUST BUILDERS.</span>
   </div>
-
-  <div class="nav">
-    <a href="index.html">Home</a>
-    <a href="hackathons.html">Hackathons</a>
-    <a href="contact.html">Contact</a>
-    <a href="about.html">About Us</a>
-    <a href="projects.html">Projects</a>
-  </div>
-
-  <!-- Frisbee-style Rotating Cube -->
-  <div class="cube-container">
-    <div class="cube">
-      <div class="cube-face front"></div>
-      <div class="cube-face back"></div>
-      <div class="cube-face right"></div>
-      <div class="cube-face left"></div>
-      <div class="cube-face top"></div>
-      <div class="cube-face bottom"></div>
+  <div class="banner">
+    <div class="cube-container">
+      <div class="cube">
+        <div class="cube-face front"></div>
+        <div class="cube-face back"></div>
+        <div class="cube-face right"></div>
+        <div class="cube-face left"></div>
+        <div class="cube-face top"></div>
+        <div class="cube-face bottom"></div>
+      </div>
+    </div>
+    <div class="nav">
+      <a href="index.html">Home</a>
+      <a href="hackathons.html">Hackathons</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About Us</a>
+      <a href="projects.html">Projects</a>
     </div>
   </div>
-
-  <div class="main">
+  <div class="container">
     <h1>Hackathons @ N3C</h1>
-
     <p>
-      Our hackathons are fast-paced, team-based events where students from all backgrounds come together to build something — using no-code tools and their own creativity. Whether you're a first-timer or a serial builder, this is your place to create.
+      N3C Hackathons are open-invitation, time-limited events where creators of all backgrounds work in small teams to build real, no-code products. These aren't just design jams — they're focused on delivering MVPs using modern tools and rapid collaboration.
     </p>
-
-    <h2>🎯 Goals of Our Hackathons</h2>
+    <h2>Goals of Our Hackathons</h2>
     <p>
-      - Empower non-coders to prototype real tools in 24 hours or less<br>
-      - Foster collaboration between business, psych, arts, and tech students<br>
-      - Prove that execution matters more than technical experience<br>
-      - Help students walk away with a working product, not just an idea
+      Our events aim to:
+      <ul>
+        <li>Enable non-technical students to build functional products quickly</li>
+        <li>Encourage cross-discipline collaboration</li>
+        <li>Showcase what can be built using tools like Webflow, Zapier, Figma, and AI</li>
+        <li>Develop execution and iteration skills under pressure</li>
+      </ul>
     </p>
-
-    <h2>🛠️ How It Works</h2>
+    <h2>How It Works</h2>
     <p>
-      - Teams are formed at the event kickoff<br>
-      - Each team gets a prompt or theme<br>
-      - You’ll use tools like Notion, Zapier, Webflow, Figma, Glide, and AI<br>
-      - Judges select winners based on creativity, impact, and execution
+      Participants form teams at the start of the event. A challenge theme is announced, and then teams use no-code tools to create their solution within a 24-hour window. Mentors provide support. Final projects are presented to a panel of judges.
     </p>
-
-    <h2>📖 Hackathon Story</h2>
-    <p>
-      In June 2023, the Cluj Hackathon brought together over 100 participants and awarded top prize to a team that built an AI-powered software testing system — fully functional and designed for non-coders. The team went on to pitch it as a real business.
-    </p>
+    <h2>Featured Hackathon Story</h2>
+    <div class="hackathon-story">
+      <img src="https://images.unsplash.com/photo-1665686301374-4f1887c2aef4" alt="Hackathon Event Thumbnail">
+      <div class="story-title">How Team Starling Built an Award-Winning Mental Health App in 24 Hours</div>
+      <div class="story-meta">By Megan Slack • June 27, 2023 • <a href="https://www.creativebloq.com/news/mental-health-app-hackathon" target="_blank">CreativeBloq.com</a></div>
+      <p>
+        At the 2023 MindHack London event, a student team called Starling created a mental health tracking app designed for young people. Built using no-code platforms like Glide and Canva, the app impressed judges with its polished UI and focus on user empathy.
+        What set Starling apart was their ability to rapidly wireframe, test, and iterate on a working solution — all within one day. Their story is a testament to how meaningful, functional apps can be launched without writing a single line of code.
+      </p>
+    </div>
   </div>
-
   <div class="footer">
     &copy; 2025 N3C – No-Code Coding Club @ Capilano University<br>
     President: Ken Matsuura
   </div>
-
 </body>
 </html>
