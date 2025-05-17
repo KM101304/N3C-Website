@@ -38,23 +38,51 @@
       100% { transform: translateX(-100%); }
     }
 
-    .nav {
+    .container {
       display: flex;
-      justify-content: center;
-      padding-top: 2rem;
+      flex-direction: row;
+      padding: 2rem;
+      gap: 2rem;
+      flex: 1;
     }
 
-    .nav a {
-      color: #1a1a1a;
+    .sidebar {
+      width: 220px;
+      flex-shrink: 0;
+    }
+
+    .sidebar h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .sidebar p {
+      font-size: 1.1rem;
       font-weight: 600;
-      text-decoration: none;
-      margin-right: 1.5rem;
+      margin-bottom: 1.5rem;
     }
 
     .main {
+      flex-grow: 1;
+    }
+
+    .nav {
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .nav a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .content {
       max-width: 1000px;
       margin: 2rem auto;
-      padding: 0 2rem;
     }
 
     h1 {
@@ -111,19 +139,22 @@
     }
 
     @media screen and (max-width: 768px) {
-      h1 {
-        font-size: 2.2rem;
-        text-align: center;
+      .container {
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      .sidebar {
+        width: 100%;
+      }
+
+      .sidebar h1 {
+        font-size: 3rem;
       }
 
       .nav {
         flex-direction: column;
-        align-items: center;
         gap: 1rem;
-      }
-
-      .main {
-        padding: 1rem;
       }
 
       .bio-section {
@@ -139,56 +170,63 @@
   </style>
 </head>
 <body>
-
   <div class="ticker">
     <span>N3C: BUILD WITHOUT CODE | WORKSHOPS, HACKATHONS, TOOLS | FOLLOW @NOCODECODINGCLUB | NO CODE. NO LIMITS. JUST BUILDERS.</span>
   </div>
 
-  <div class="nav">
-    <a href="index.html">Home</a>
-    <a href="hackathons.html">Hackathons</a>
-    <a href="contact.html">Contact</a>
-    <a href="about.html">About Us</a>
-    <a href="projects.html">Projects</a>
-  </div>
-
-  <div class="main">
-    <h1>About N3C</h1>
-    <p>
-      N3C stands for the No-Code Coding Club — a community created to help students from all backgrounds learn how to build real, functioning digital tools without needing to write a single line of code.
-    </p>
-
-    <div class="bio-section">
-      <div class="bio-text">
-        <h2>About the Founder – Ken Matsuura</h2>
-        <p>
-          My name is Ken Matsuura. I am 20 years old and I'm a fourth-year business student at Capilano University with a concentration in International Business and Logistics. I’m also the creator of N3C.
-        </p>
-        <p>
-          I started N3C because I noticed something missing — a space for students who think creatively, but don’t have a technical background. With no-code tools like Notion, AI, Zapier, and Webflow, anyone can bring big ideas to life. This club gives students from any program the tools and support to actually build things — quickly.
-        </p>
-      </div> 
-
-      <div class="bio-photo">
-        <img src="ken-bio.jpg" alt="Ken Matsuura">
-      </div>
+  <div class="container">
+    <div class="sidebar">
+      <h1>N3C</h1>
+      <p>NO CODE CODING CLUB</p>
     </div>
 
-    <h2>Interests & Hobbies</h2>
-    <p>
-      I like to experiment. I’m into building automation systems, developing tools using AI. I also enjoy training, reflecting, and traveling — anything that pushes me physically or mentally.
-    </p>
+    <div class="main">
+      <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="hackathons.html">Hackathons</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="projects.html">Projects</a>
+      </div>
 
-    <h2>My Goal with This Club</h2>
-    <p>
-      The dream is to create a launchpad. I want N3C to give people the confidence and skills to start their own projects — fast. Workshops, hackathons, community builds — whatever gets ideas out of heads and into the world. Eventually, I want this to be bigger than CapU
-    </p>
+      <div class="content">
+        <h1>About N3C</h1>
+        <p>
+          N3C stands for the No-Code Coding Club — a community created to help students from all backgrounds learn how to build real, functioning digital tools without needing to write a single line of code.
+        </p>
+
+        <div class="bio-section">
+          <div class="bio-text">
+            <h2>About the Founder – Ken Matsuura</h2>
+            <p>
+              My name is Ken Matsuura. I am 20 years old and I'm a fourth-year business student at Capilano University with a concentration in International Business and Logistics. I’m also the creator of N3C.
+            </p>
+            <p>
+              I started N3C because I noticed something missing — a space for students who think creatively, but don’t have a technical background. With no-code tools like Notion, AI, Zapier, and Webflow, anyone can bring big ideas to life. This club gives students from any program the tools and support to actually build things — quickly.
+            </p>
+          </div> 
+
+          <div class="bio-photo">
+            <img src="ken-bio.jpg" alt="Ken Matsuura">
+          </div>
+        </div>
+
+        <h2>Interests & Hobbies</h2>
+        <p>
+          I like to experiment. I’m into building automation systems, developing tools using AI. I also enjoy training, reflecting, and traveling — anything that pushes me physically or mentally.
+        </p>
+
+        <h2>My Goal with This Club</h2>
+        <p>
+          The dream is to create a launchpad. I want N3C to give people the confidence and skills to start their own projects — fast. Workshops, hackathons, community builds — whatever gets ideas out of heads and into the world. Eventually, I want this to be bigger than CapU
+        </p>
+      </div>
+    </div>
   </div>
 
   <div class="footer">
     &copy; 2025 N3C – No-Code Coding Club @ Capilano University<br>
     President: Ken Matsuura
   </div>
-
 </body>
 </html>
